@@ -1,0 +1,21 @@
+/* declare global styles and global css variables*/
+:root {
+    --primary-color : #e30019;
+    --text-color : #333
+}
+
+/* reset CSS */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.4rem;    
+}
