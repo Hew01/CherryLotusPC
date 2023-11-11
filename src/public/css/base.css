@@ -1,21 +1,41 @@
 /* declare global styles and global css variables*/
 :root {
     --primary-color : #e30019;
-    --text-color : #333
+    --text-color : #333;
+    --header-height : 80px;
+    --max-width: 1200px;
 }
 
 /* reset CSS */
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 * { 
     margin: 0;
-    padding: 0;
+    padding: 0; 
+    text-decoration: none;
+    list-style-type: none;
     box-sizing: inherit;
 }
 
 body {
+    font-family: 'Segoe UI', sans-serif;
     font-size: 1.4rem;    
+}
+
+.app {
+    width: 100%;
+}
+
+.container {
+    margin-top: var(--header-height);
+}
+
+.inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
 }

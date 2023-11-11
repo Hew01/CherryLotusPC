@@ -1,3 +1,55 @@
 <header id="header">
-    <span>This is header</span>
+    <div class="inner header__wrapper">
+        <a class="header__logo" href="/">
+            <img src="https://file.hstatic.net/200000636033/file/logo_fd11946b31524fbe98765f34f3de0628.svg" alt="Logo" class="header__logo-image">
+        </a>
+
+        <button class="header__categories-btn">
+            <i class="fa-solid fa-bars header__icon"></i>
+            <span>Danh mục</span>
+        </button>
+
+        <form class="header__search-box" method="GET" action="">
+            <input type="text" placeholder="Bạn cần tìm gì?" class="header__search-input" required>
+            <button class="header__search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <ul class="header__actions-list">
+            <li class="header__action-item">
+                <a href="tel:07721234" class="header__action-link">
+                    <i class="fa-solid fa-headphones header__icon"></i>
+                    <span>Hotline 0772.1234</span>
+                </a>
+            </li>
+            <li class="header__action-item">
+                <a href="#" class="header__action-link">
+                    <i class="fa-solid fa-location-dot header__icon"></i>
+                    <span>Hệ thống Showroom</span>
+                </a>
+            </li>
+            <li class="header__action-item">
+                <a href="#" class="header__action-link">
+                    <i class="fa-regular fa-file-lines header__icon"></i>
+                    <span>Tra cứu đơn hàng</span>
+                </a>
+            </li>
+            <li class="header__action-item">
+                <a href="#" class="header__action-link">
+                   <i class="fa-solid fa-cart-shopping header__icon"></i>
+                   <span>Giỏ hàng</span>
+                   <span class="header__cart-badge">0</span>                   
+                </a>
+            </li>
+        </ul>
+
+        <button class="header__account-btn">
+            <i class="fa-regular fa-user header__icon"></i>
+            <div>
+                <p style="text-align: left;">Xin chào</p>
+                <span class="header__username">Phạm Thanh Duy</span>
+            </div>
+        </button>
+    </div>
 </header>

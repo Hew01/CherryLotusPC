@@ -1,3 +1,136 @@
-.title {
-    color: yellow;
+/* CSS apply for header and footer */
+#header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    font-size: 2rem;    
+}
+
+.header__wrapper {
+    padding: 16px 0;
+    height: 100%;
+    font-size: 1.6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__logo {
+    overflow: hidden;
+    height: 100%;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.header__logo-image {
+    height: 100%;
+    width: 100px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.header__categories-btn , .header__account-btn {
+    display: flex;
+    background-color: #be1529;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: #fff;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* header__search-box CSS */
+.header__search-box {
+    height: 100%;
+    flex: 1;
+    padding: 10px 18px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__search-box:focus-within {
+    border: 2px solid #000;
+}
+
+.header__search-input {
+    height: 100%;
+    flex: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    padding-right: 6px;
+}
+
+.header__search-btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header__search-btn i {
+    font-size: 1.8rem;
+}
+
+/* header__actions-list */
+.header__actions-list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 10px;
+}
+
+.header__action-item {
+    max-width: 100px;
+    height: 100%;
+}
+
+.header__action-link {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.header__icon {
+    font-size: 2rem;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.header__cart-badge {
+    position: absolute;
+    min-width: 16px;
+    min-height: 16px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 16px;
+    top: 4px;
+    left: 10px;
+    border-radius: 50%;
+    color: #000;
+    background-color: #fdd835;
+    border: 1px solid #fff;
 }
