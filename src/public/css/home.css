@@ -37,7 +37,7 @@
 
 .header__categories-btn , .header__account-btn {
     display: flex;
-    background-color: #be1529;
+    background-color: #006bb3;
     padding: 8px;    
     border-radius: 4px;
     align-items: center;
@@ -142,7 +142,7 @@
 }
 
 /* Header login box CSS */
-.header__login-box {
+.header__account-box {
     position: absolute;
     z-index: 2;
     top: 130%;
@@ -155,7 +155,7 @@
     animation: FadeIn ease-in 0.2s;
 }
 
-.header__login-box::before {
+.header__account-box::before {
     content: "";
     position: absolute;
     top: -30px;
@@ -165,7 +165,7 @@
     border-color: transparent transparent #fff transparent;
 }
 
-.header__login-box::after {
+.header__account-box::after {
     content: "";
     position: absolute;
     width: 100px;
@@ -175,7 +175,7 @@
     right: 20px;
 }
 
-.header__login-controls {
+.header__login-controls, .header__user-info{
     min-width: 260px;
     display: flex;
     justify-content: space-between;
@@ -203,7 +203,7 @@
     text-decoration: underline;
 }
 
-.header__login-box p {
+.header__account-box p {
     font-size: 1.6rem;
     color: #fff;
     font-weight: 500;
@@ -237,7 +237,63 @@
     background-color: transparent;
 }
 
-.header__account-btn:hover .header__login-box {
+.header__account-btn:hover .header__account-box {
+    display: block;
+}
+
+.header__user-info {
+    width: 100%;
+    display: none;
+    border-bottom: none;
+    padding: 0;
+}
+
+.header__user-info p {
+    width: 100%;
+}
+
+.header__user-option-list {
+    margin-top: 10px;
+    width: 100%;
+    padding: 0;
+}
+
+.header__user-option {
+    padding: 8px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.header__user-option:last-child {
+    margin-top: 26px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.header__user-option:hover {
+    background-color: rgba(0,0,0,0.05);
+    transition: all ease-in-out 0.4s;
+}
+
+.header__user-option a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);    
+}
+
+.header__user-option i {
+    font-size: 2rem;
+    color: var(--text-color);
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 20px;
+}
+
+/* add class logined to change account button */
+.header__account-box.logined .header__login-container {
+    display: none;
+}
+
+.header__account-box.logined .header__user-info {
     display: block;
 }
 
@@ -416,6 +472,185 @@
     object-fit: contain;
     object-position: center;
     margin-left: 10px;
+}
+
+/* Login form CSS */
+.login-form , .signup-form , .forgot-password-form {
+    min-width: 450px;
+    color: #333;
+    display: none;
+}
+
+.login-form.active , .signup-form.active, .forgot-password-form.active {
+    display: block;
+}
+
+.form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.form__header h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    user-select: none;
+}
+
+.form__header button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 2.6rem;
+    cursor: pointer;
+}
+
+.form__header button:hover {
+    opacity: 0.7;
+    transition: all ease-in 0.2s;
+}
+
+.form {
+    padding: 20px 0;
+}
+
+.form__group {
+    display: flex;
+    align-items: center;
+}
+
+.form__group + .form__group {
+    margin-top: 20px;
+}
+
+.form__group label{
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-width: 100px;
+    user-select: none;
+}
+
+.form__input {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    caret-color: var(--primary-color);
+}
+
+.form__input::placeholder {
+    font-size: 1.2rem;
+}
+
+.form__input:focus {
+    border: 1px solid #4399fa;
+}
+
+.form__group:has(.form__forgot-password) {
+    justify-content: flex-end;
+}
+
+.form__forgot-password {
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form__error-message {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 4px;
+    color: red;
+    display: none;
+}
+
+.form__error-message.active {
+    display: inline-block;
+}
+
+.form__login-btn, .form__forgot-password-submit-btn, .form__signup-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.form__horizontal-line {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.form__horizontal-line div {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.form__horizontal-line span {
+    position: absolute;
+    padding: 0 6px;
+    left: 50%;
+    top: -6px;
+    z-index: 2;
+    transform: translateX(-50%);
+    color: #c3c3c3;
+    background-color: #fff;
+}
+
+.form__socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form__socials button {
+    flex: 1;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.form__socials button i {
+    font-size: 1.8rem;
+    margin-right: 4px;
+}
+
+.form__socials button:first-child {
+    background-color: #df4a32;
+}
+
+.form__socials button:last-child {
+    background-color: #3b5998;
+}
+
+.form__navigate-question {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #000;
+    user-select: none;
+} 
+
+.signup-navigate-button, .login-navigate-button {
+    font-weight: 600;
+    color: #4399fa;
+    cursor: pointer;
+}
+
+.form__group > div {
+    flex: 1; 
+    width : 100%;
 }
 
 /* Responsive  */

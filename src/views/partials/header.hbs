@@ -48,21 +48,38 @@
         <div class="header__account-btn">
             <i class="fa-regular fa-user header__icon"></i>
             <div>
-                {{!-- <p style="text-align: left;">Xin chào</p>
-                <span class="header__username">Phạm Thanh Duy</span> --}}
-                <span class="header__text">Đăng nhập</span>
+                 <span class="header__text">Đăng nhập</span>
             </div>
-            <div class="header__login-box">
-                <p>Xin chào, vui lòng đăng nhập</p>
-                <div class="header__login-controls">
-                    <button class="header__login-btn">Đăng nhập</button>
-                    <button class="header__signup-btn">Đăng ký</button>
+            <div class="header__account-box">
+                <div class="header__login-container">
+                    <p>Xin chào, vui lòng đăng nhập</p>
+                    <div class="header__login-controls">
+                        <button class="header__login-btn">Đăng nhập</button>
+                        <button class="header__signup-btn">Đăng ký</button>
+                    </div>
+                    <div>
+                        <a href="/">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <span>Trợ giúp</span>
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    <a href="/">
-                        <i class="fa-regular fa-circle-question"></i>
-                        <span>Trợ giúp</span>
-                    </a>
+                <div class="header__user-info">
+                    <p>Xin chào, Phạm Thanh Duy</p>
+                    <ul class="header__user-option-list">
+                        <li class="btn header__user-option">
+                            <i class="fa-regular fa-clipboard"></i>
+                            <a href="#">Đơn hàng của tôi</a>
+                        </li>
+                        <li class="btn header__user-option">
+                            <i class="fa-regular fa-eye"></i>
+                            <a href="#">Đã xem gần đây</a>
+                        </li>
+                        <li class="btn header__user-option header__logout-btn">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="#">Đăng xuất</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

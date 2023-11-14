@@ -14,6 +14,9 @@ const liveReloadServer = livereLoad.createServer()
 
 // apply midlewares
 app.use(bodyParser.json())
+app.use(express.json({
+    type: "*/*"
+}))
 app.use(bodyParser.urlencoded({ extended : true }))
 
 liveReloadServer.watch(path.join(__dirname, 'public'))
