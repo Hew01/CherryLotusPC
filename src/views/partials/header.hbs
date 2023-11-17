@@ -1,87 +1,98 @@
-{{!-- Phần header dùng chung cho trang web --}}
+{{! Phần header dùng chung cho trang web }}
 <header id="header">
-    <div class="inner header__wrapper">
-        <a class="header__logo" href="/">
-            <img src="https://file.hstatic.net/200000636033/file/logo_fd11946b31524fbe98765f34f3de0628.svg" alt="Logo" class="header__logo-image">
-        </a>
+  <div class="inner header__wrapper">
+    <a class="header__logo" href="/">
+      <img
+        src="/assets/images/logo_gearvn_uit.png"
+        alt="Logo"
+        class="header__logo-image"
+      />
+    </a>
 
-        <div class="header__categories-btn">
-            <i class="fa-solid fa-bars header__icon"></i>
-            <span class="header__text">Danh mục</span>
-        </div>
-
-        <form class="header__search-box" method="GET" action="">
-            <input type="text" placeholder="Bạn cần tìm gì?" class="header__search-input" required>
-            <button class="header__search-btn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
-
-        <ul class="header__actions-list">
-            <li class="header__action-item">
-                <a href="tel:07721234" class="header__action-link">
-                    <i class="fa-solid fa-headphones header__icon"></i>
-                    <span class="header__text">Hotline 0772.1234</span>
-                </a>
-            </li>
-            <li class="header__action-item">
-                <a href="#" class="header__action-link">
-                    <i class="fa-solid fa-location-dot header__icon"></i>
-                    <span class="header__text">Hệ thống Showroom</span>
-                </a>
-            </li>
-            <li class="header__action-item">
-                <a href="#" class="header__action-link">
-                    <i class="fa-regular fa-file-lines header__icon"></i>
-                    <span class="header__text">Tra cứu đơn hàng</span>
-                </a>
-            </li>
-            <li class="header__action-item header__cart">
-                <a href="#" class="header__action-link">
-                   <i class="fa-solid fa-cart-shopping header__icon"></i>
-                   <span class="header__text">Giỏ hàng</span>
-                   <span class="header__cart-badge">0</span>                   
-                </a>
-            </li>
-        </ul>
-
-        <div class="header__account-btn">
-            <i class="fa-regular fa-user header__icon"></i>
-            <div>
-                 <span class="header__text">Đăng nhập</span>
-            </div>
-            <div class="header__account-box">
-                <div class="header__login-container">
-                    <p>Xin chào, vui lòng đăng nhập</p>
-                    <div class="header__login-controls">
-                        <button class="header__login-btn">Đăng nhập</button>
-                        <button class="header__signup-btn">Đăng ký</button>
-                    </div>
-                    <div>
-                        <a href="/">
-                            <i class="fa-regular fa-circle-question"></i>
-                            <span>Trợ giúp</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="header__user-info">
-                    <p>Xin chào, Phạm Thanh Duy</p>
-                    <ul class="header__user-option-list">
-                        <li class="btn header__user-option">
-                            <i class="fa-regular fa-clipboard"></i>
-                            <a href="#">Đơn hàng của tôi</a>
-                        </li>
-                        <li class="btn header__user-option">
-                            <i class="fa-regular fa-eye"></i>
-                            <a href="#">Đã xem gần đây</a>
-                        </li>
-                        <li class="btn header__user-option header__logout-btn">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            <a href="#">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="header__categories-btn">
+      <i class="fa-solid fa-bars header__icon"></i>
+      <span class="header__text">Danh mục</span>
     </div>
+
+    <form class="header__search-box" method="GET" action="">
+      <input
+        type="text"
+        placeholder="Bạn cần tìm gì?"
+        class="header__search-input"
+        required
+      />
+      <button class="header__search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+
+    <ul class="header__actions-list">
+      <li class="header__action-item">
+        <a href="tel:07721234" class="header__action-link">
+          <i class="fa-solid fa-headphones header__icon"></i>
+          <span class="header__text">Hotline 0772.1234</span>
+        </a>
+      </li>
+      <li class="header__action-item">
+        <a href="#" class="header__action-link">
+          <i class="fa-solid fa-location-dot header__icon"></i>
+          <span class="header__text">Hệ thống Showroom</span>
+        </a>
+      </li>
+      <li class="header__action-item">
+        <a href="#" class="header__action-link">
+          <i class="fa-regular fa-file-lines header__icon"></i>
+          <span class="header__text">Tra cứu đơn hàng</span>
+        </a>
+      </li>
+      <li class="header__action-item header__cart">
+        <a href="#" class="header__action-link">
+          <i class="fa-solid fa-cart-shopping header__icon"></i>
+          <span class="header__text">Giỏ hàng</span>
+          <span class="header__cart-badge">0</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="header__account-btn">
+      <i class="fa-regular fa-user header__icon"></i>
+      <div>
+        <span class="header__text">Đăng nhập</span>
+      </div>
+      <div class="header__account-box">
+        <div class="header__login-container">
+          <p>Xin chào, vui lòng đăng nhập</p>
+          <div class="header__login-controls">
+            <button class="header__login-btn">Đăng nhập</button>
+            <button class="header__signup-btn">Đăng ký</button>
+          </div>
+          <div>
+            <a href="/">
+              <i class="fa-regular fa-circle-question"></i>
+              <span>Trợ giúp</span>
+            </a>
+          </div>
+        </div>
+        <div class="header__user-info">
+          <p>Xin chào, Phạm Thanh Duy</p>
+          <ul class="header__user-option-list">
+            <li class="btn header__user-option">
+              <i class="fa-regular fa-clipboard"></i>
+              <a href="#">Đơn hàng của tôi</a>
+            </li>
+            <li class="btn header__user-option">
+              <i class="fa-regular fa-eye"></i>
+              <a href="#">Đã xem gần đây</a>
+            </li>
+            <li class="btn header__user-option header__logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <a href="#">Đăng xuất</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script src="/javascripts/home.js"></script>

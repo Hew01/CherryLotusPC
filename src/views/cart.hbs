@@ -1,0 +1,308 @@
+{{> navigation}}
+<!-- Cart -->
+<div>
+    <div class="shopping-cart">
+    <div class="breadcrumb-wrap">
+        <!-- Mua thêm sản phẩm -->
+        <div class="breadcrumb-cart">
+            <a class="breadcrumb-cart--link-product" href="/">
+                <i class="fa-solid fa-angle-left breadcrumb-cart--icon"></i>
+                Mua thêm sản phẩm khác
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-angle-left breadcrumb-cart--icon"></i>
+                Trở về
+            </a>
+        </div>
+        <!-- Giỏ hàng -->
+        <div class="cart-main">
+        <!-- Phần header của cart-main -->
+            <div class="header-cart">
+                <div id="st1" class="header-cart__step step1">
+                    <div class="header-cart__step--icon icon1">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div class="text">
+                        <span>Giỏ hàng</span>
+                    </div>
+                </div>
+                <div id="st2" class="header-cart__step step2">
+                    <div class="header-cart__step--icon icon2">
+                        <i class="fa-regular fa-id-card "></i>
+                    </div>
+                    <div class="header-cart__step--text">
+                        <span> Thông tin đặt hàng</span>
+                    </div>
+                </div>
+                <div id="st3" class="header-cart__step step3">
+                    <div class="header-cart__step--icon icon3">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </div>
+                    <div class="header-cart__step--text">
+                        <span>Thanh toán</span>
+                    </div>
+                </div>
+                <div id="st4" class="header-cart__step step4">
+                    <div class="header-cart__step--icon icon4">
+                        <i class="fa-solid fa-square-check"></i>
+                    </div>
+                    <div class="header-cart__step--text">
+                        <span>Hoàn tất</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Phần thông tin sản phẩm đã chọn -->
+            <div class="section-info-product">
+                <!-- Lúc chưa thêm sản phẩm vào giỏ hàng -->
+                <div class="no-product">
+                    <img src="../img/icon/cart.png" alt="giỏ hàng trống" class="no-product__img">
+                    <span class="no-product--text">Giỏ hàng của bạn đang trống</span>
+                    <button class="btn buy-continue">
+                        <a href="../product/index.html">Tiếp tục mua hàng</a>
+                    </button>
+                </div>
+                <!-- Lúc có sản phẩm -->
+                <section class="product-cart active">
+                <!-- Phần hình ảnh và nút xóa sản phẩm -->
+                    <div class="product-cart__left">
+                        <!-- Hình ảnh sản phẩm -->
+                        <div class="product-cart__left--img">
+                            <img
+                                class="img-product-one"
+                                src="../img/product_img/product1.webp"
+                                alt="product1"
+                            />
+                        </div>
+                        <!-- Nút xóa sản phẩm -->
+                        <div class="delete-product">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>
+                                <a href="#" style="text-decoration: none; color: #6d6e72; font-size: 14px;">Xóa</a>
+                            </span>
+                        </div>
+                    </div>
+                <!-- Phần mô tả chi tiết sản phẩm -->
+                <div class="product-cart__center">
+                    <a href="#" class="product-cart__center--desc">
+                        <h3>
+                        Card màn hình GIGABYTE GeForce RTX 4060 Ti AERO OC 16G
+                        (GV-N406TAERO OC-16GD)
+                        </h3>
+                    </a>
+                </div>
+                <!-- Giá sản phẩm và số lượng sản phẩm -->
+                <div class="product-cart__right">
+                    <!-- Giá sản phẩm -->
+                    <div class="product-price">
+                        <span>15.990.000₫</span>
+                    </div>
+                    <!-- Số lương sản phẩm -->
+                    <div class="amount-product">
+                        <button class="minus-plus minus">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input class="mid-minus-plus" type="text" size="4" min="1" value="1" readonly/>
+                        <button class="minus-plus plus">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                </section>
+                <!-- Kết thúc phần lúc có sản phẩm -->
+                <!-- Thông tin khách hàng đặt hàng -->
+                <section style="width: 100%" class="info-customer">
+                    <form style="width: 100%" action="">
+                        <!-- Thông tin khách hàng -->
+                        <div class="title-info-customer">
+                            <h2 class="title-text">Thông tin khách mua hàng</h2>
+                        </div>
+                        <!-- Giới tính + họ tên + số điện thoại -->
+                        <div class="card-detail">
+                            <div class="gender">
+                                <div class="men-check">
+                                    <input type="radio" id="men" name="gender" value="Anh" checked>
+                                    <label for="">Anh</label>
+                                </div>
+                                <div class="women-check">
+                                <input type="radio" id="women" name="gender" value="Anh">
+                                <label for="">Chị</label>
+                                </div>
+                            </div>
+                            <div class="input-customer">
+                                <div class="input-name text-box">
+                                    <input type="text" placeholder>
+                                    <label class="label-text label-text-name">Nhập họ tên</label>
+                                </div>
+                                <div class="input-phone text-box">
+                                    <input type="text" placeholder>
+                                    <label class="label-text label-text-phone">Nhập số điện thoại</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phương thức và địa chỉ giao hàng -->
+                        <div class="address">
+                        <!-- Chọn cách nhận hàng -->
+                            <div class="cart-title">
+                                <h2 class="title-text">Chọn cách nhận hàng</h2>
+                            </div>
+                            <!-- Giao hàng tận nơi -->
+                            <div class="checkbox-item">
+                                <input type="radio" name="method" value="Giao hàng tận nơi" checked class="is-filled">
+                                <label for="cod-method">Giao hàng tận nơi</label>
+                            </div>
+                            <!-- Địa chỉ nhận hàng -->
+                            <div class="address-shipping">
+                                <div class="select-left select-box">
+                                <div class="select-option select-option1 select-option123">
+                                    <select name="" id="provinces" onchange="getProvinces(event)" class="form-data">
+                                    <option value="">Chọn Tỉnh, Thành phố</option>
+                                    </select>
+                                </div>
+                                <div class="select-option select-option2 select-option123">
+                                    <select name="" id="district" onchange="getDistricts(event)" class="form-data">
+                                    <option value="">Chọn Quận, Huyện</option>
+                                    </select>
+                                </div>
+                                </div>
+
+                                <div class="select-right select-box">
+                                <div class="select-option select-option3 select-option123">
+                                    <select name="" id="wards"  class="form-data">
+                                    <option value="">Chọn Phường, Xã</option>
+                                    </select>
+                                </div>
+                                <div class="select-option select-option4 form-data">
+                                    <input type="text" placeholder class="form-data">
+                                    <label for="" class="label-text-address">Số nhà, tên đường</label>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- Kết thúc địa chỉ nhận hàng -->
+
+                            <!-- Bắt đầu phần ghi chú và xuất hóa đơn + thông tin công ty -->
+                            <div class="note-box">
+                                <!-- Bắt đầu Lưu ý, yêu cầu -->
+                                <div class="text-note">
+                                    <input type="text" class="input-text-note" placeholder="">
+                                    <label for="" class="label-text-note">Lưu ý, yêu cầu khác (Không bắt buộc)</label>
+                                </div>
+                                <!-- Kết thúc Lưu ý, yêu cầu -->
+                                <!-- Bắt đầu nút Xuất hóa đơn -->
+                                <div class="export-bill">
+                                <div class="tick-export-bill">
+                                    <input type="checkbox" class="tick-input">
+                                    <label for="toggleCheckbox" class="tick-label">Xuất hóa đơn cho đơn hàng</label>
+                                </div>
+                                </div>
+                                <!-- Kết thúc nút Xuất hóa đơn -->
+                                <!--  Bắt đầu Thông tin công ty -->
+                                <div class="form-group" id="companyInfo">
+                                <div class="info-company">
+                                    <div class="name-company input-company">
+                                        <input type="text" class="text-input" placeholder>
+                                        <label for="" class="label-input label-company">Tên công ty</label>
+                                    </div>
+                                    <div class="address-company input-company">
+                                        <input type="text" placeholder class="text-input">
+                                        <label for="" class="label-input label-company">Địa chỉ công ty</label>
+                                    </div>
+                                    <div class="tax-email-group">
+                                    <div class="tax-id-company input-company tax-email">
+                                        <input type="text" placeholder class="text-input-tax text-input">
+                                        <label for="" class="label-input label-company">Mã số thuế</label>
+                                    </div>
+                                    <div class="email-company input-company tax-email">
+                                        <input type="text" placeholder class="text-input-email text-input">
+                                        <label for="" class="label-input label-company">Email</label>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <!-- Kết thúc phần thông tin công ty -->
+                            </div>
+                        <!-- Kết thúc phần ghi chú và xuất hóa đơn + Thông tin công ty-->
+                        </div>
+                    </form>
+                </section>
+                <!-- Bắt đầu:  Thông tin đặt hàng => Chuyển từ thông tin mình điền sang -->
+                <section class="section-info-order">
+                <div class="info-order">
+                    <h2 class="info-order__header">
+                    Thông tin đặt hàng
+                    </h2>
+                    <ul>
+                    <li class="line line1">
+                        <span>Khách hàng:</span>
+                        <p>Khánh Duy Nguyễn</p>
+                    </li>
+                    <li class="line line2">
+                        <span>Số điện thoại:</span>
+                        <p>0339166220</p>
+                    </li>
+                    <li class="line line3">
+                        <span>Địa chỉ nhận hàng:</span>
+                        <p>Số 7, đường K, TTHC, Dĩ An, Bình Dương</p>
+                    </li>
+                    <li class="line line4">
+                        <span>Tạm tính:</span>
+                        <p class="line--red">15.990.000₫</p>
+                    </li>
+                    <li class="line line5">
+                        <span>Phí vận chuyển:</span>
+                        <p class="line--red">Miễn phí</p>
+                    </li>
+                    <li class="line line6">
+                        <span>Tổng tiền:</span>
+                        <p class="line--red">15.990.000₫</p>
+                    </li>
+                    </ul>
+                </div>
+                </section>
+                <!-- Kết thúc: Thông tin đặt hàng => Chuyển từ thông tin mình điền sang -->
+                
+                <!-- Đặt hàng xong -->
+                <section class="complete-order">
+                    <span class="no-product--text">Cảm ơn bạn đã mua sản phẩm</span>
+                    <button class="btn buy-continue">
+                    <a href="/">Tiếp tục mua hàng</a>
+                    </button>
+                </section>
+                <!-- Kết thúc phần đặt hàng xong -->
+                <hr>
+            <!-- Phần tổng tiền và đặt hàng -->
+                <div class="section-info-total">
+                <div class="info-shipping">
+                    <div class="shipping-fee">
+                    <span>Phí vận chuyển:</span>
+                    <span>Miễn phí</span>
+                </div>
+                <div class="total-price">
+                    <span>Tổng tiền:</span>
+                    <span class="price-one-product">15.990.000₫</span>
+                </div>
+                </div>
+                <div class="order-now">
+                    <button>Đặt hàng ngay</button>
+                </div>
+                <div class="form-payment">
+                    <span>Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<p>
+    {{#each products}}
+        {{name}}
+    {{/each}}   
+</p>
+<script src="/javascripts/cart.js"></script>
+<script src="/javascripts/home.js"></script>
+
+
+{{!-- Đây là phần mới thêm --}}
+
+{{!-- Kết thúc phần mới thêm --}}
