@@ -1,4 +1,5 @@
 const productModel = require('../models/product')
+const { mongooseToObject, mongooseToObjectAll} = require('../../untils')
 
 class ProductController {
     // [GET] /products
@@ -9,7 +10,7 @@ class ProductController {
                 { $project : { _id : 0, title : "$_id", data : "$products" } }
             ]) 
 
-            res.status(200).json({ "message" : "fetch products successfully", products})
+            res.status(200).json({ "message" : "fetch products successfully", products : mongooseToObjectAll(products)})
         }
         catch(err) {
             res.status(500).json({"message": "fetch products failed"})
@@ -21,8 +22,8 @@ class ProductController {
     // [GET] /products/details/:id 
     async getProductDetail (req, res, next) {
         try {
-            const product = await productModel.findOne({ _id : req.params.id })        
-            res.render('product_detail', { product } )     
+            const product = await productModel.findOne({ _id : req.params.id })                  
+            res.render('product_detail', { product : mongooseToObject(product) } )     
         }   
         catch(err) {
             console.log(err)

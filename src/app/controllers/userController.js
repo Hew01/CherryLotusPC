@@ -5,7 +5,7 @@ class UserController {
     async getUsers(req, res, next) {
         try {
            const users = await userModel.find({})
-            res.status(200).json({ "Message": "Get users successfully", "Users": users })
+            res.status(200).json({ "Message": "Get users successfully", "users": users })
         }
         catch(err) {
             console.log(err)

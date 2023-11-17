@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const headerLogoutBtnElement = $('.header__logout-btn')
     const headerCartLinkElement = $('.header__cart a')
 
-
     // function check valid email 
     const isValidEmail = (email) => {
         return String(email)
