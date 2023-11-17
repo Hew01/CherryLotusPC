@@ -14,14 +14,14 @@ const userSchema = new Schema({
         type : String,
         required : true
     },
-    contact : [
-        {
+    addresses : [
+        {    
             phoneNumber : String,
-            commune : String,
+            ward : String,
             district : String,
-            province :  String
-        }
-    ],
+            province :  String        
+        },       
+    ] , 
     orders : [], // các đơn hàng của user
     vieweds : [], // sản phẩm đã xem gần đây
 })

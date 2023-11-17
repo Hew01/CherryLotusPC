@@ -1,5 +1,5 @@
 'use strict'
-// logic for header and modal and form
+// logic for header, modal and form
 window.addEventListener('DOMContentLoaded', () => {
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
@@ -22,6 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const headerAccountTextElement = $('.header__account-btn .header__text')
     const headerUsernameElement = $('.header__user-info p')
     const headerLogoutBtnElement = $('.header__logout-btn')
+    const headerCartLinkElement = $('.header__cart a')
 
 
     // function check valid email 
@@ -39,10 +40,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if(!currentUser) {
             headerAccountBoxElement.classList.remove('logined')
             headerAccountTextElement.innerText = 'Đăng nhập'
+            headerCartLinkElement.setAttribute('href', `#`)
         }
         else {
             headerAccountBoxElement.classList.add('logined')
             headerAccountTextElement.innerText = currentUser.username 
+            headerCartLinkElement.setAttribute('href', `/cart/${currentUser?._id}`)
             headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`
         }
     }
@@ -106,6 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
     headerLogoutBtnElement.onclick = function(e) {
         localStorage.clear()
         headerAccountBoxElement.classList.remove('logined')
+        headerCartLinkElement.setAttribute('href', `#`)
         headerAccountTextElement.innerText = 'Đăng nhập'
     }
 
@@ -148,6 +152,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 headerAccountTextElement.innerText = currentUser.username
                 headerAccountBoxElement.classList.add('logined')
                 headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`
+                headerCartLinkElement.setAttribute('href', `/cart/${currentUser?._id}`)
                 window.alert('Đăng nhập thành công!')
                 clearInputFields()
                 modalElement.classList.remove('active')   
@@ -202,6 +207,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 headerAccountTextElement.innerText = currentUser.username
                 headerAccountBoxElement.classList.add('logined')
                 headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`
+                headerCartLinkElement.setAttribute('href', `/cart/${currentUser?._id}`)
                 window.alert('Đăng ký tài khoản mới thành công!')
                 clearInputFields()
                 signUpFormElement.classList.remove('active')
