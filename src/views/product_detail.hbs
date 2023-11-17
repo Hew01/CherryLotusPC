@@ -1,4 +1,157 @@
-{{#each product}}
-    <h2>{{name}}</h2>
-    <h2>{{price}}</h2>
-{{/each}}
+{{#with product}}
+<div id="detail-product" class="product-layout">
+    <div class="product-body">
+        <div class="container-fluid">
+            <div class="product-inner">
+                <div class="product-main">
+                 <div class="d-flex">
+                        <div class="product-gallerry">
+                            <div class="img-container">
+                                <img id="imgBox" src="/assets/Laptop/1.webp">
+                            </div>
+                            <div class="product-small-img">
+                                <img src="/assets/Laptop/1.webp" alt="ảnh laptop 1" onclick="chooseThisImg(this)">
+
+                                <img src="/assets/Laptop/2.webp" alt="ảnh laptop 2" onclick="chooseThisImg(this)">
+
+                                <img src="/assets/Laptop/3.webp" alt="ảnh laptop 3" onclick="chooseThisImg(this)">
+
+                                <img src="/assets/Laptop/4.webp" alt="ảnh laptop 4" onclick="chooseThisImg(this)">
+
+                                <img src="/assets/Laptop/5.png" alt="ảnh laptop 5" onclick="chooseThisImg(this)">
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="info-wrapper">
+                                <div class="info-content">
+                                    <div class="info-top">
+                                        <div class="product-name">
+                                            <h1>{{this.name}}</h1>
+                                        </div>
+    
+                                        <div class="product-rating">
+                                            <span class="number">0</span>
+                                            <span class="icon">
+                                                
+                                            </span>
+                                            <a href="#">Xem Đánh giá</a>
+                                        </div>
+                                    </div>
+                                    <div class="info-bottom">
+                                        <div class="product-price">
+                                            <span class="pro-price">{{this.price}}đ</span>
+                                            {{!-- <span class="del-price">20.990.000đ</span>
+                                            <span class="pro-percent"> -10%</span> --}}
+                                        </div>
+    
+                                        <div class="product-action">
+                                            <div class="action-buy">
+                                                <button class="button btn-buynow" name="buy-now" id="buy-now">
+                                                    <span class="main-text">MUA NGAY</span>
+                                                    <span class="sub-text">Giao hàng tận nơi hoặc nhận tại cửa hàng</span>
+                                                </button>
+                                            </div>
+                                            <div class="product-desc-short">
+                                                <p>
+                                                    <span style="font-size:18px">✔&nbsp;Hãng: {{branch}}.</span>
+                                                </p>
+
+                                                <p>
+                                                    <span style="font-size:18px">✔&nbsp;Bảo hành chính hãng 24&nbsp;tháng.&nbsp;</span>
+                                                </p>
+    
+                                                <p>
+                                                    <span style="font-size:18px">✔ Hỗ trợ đổi mới trong 7 ngày.&nbsp;</span>
+                                                </p>
+                                            </div>
+                                            <div class="product-promo-box" id="discount-promo-box">
+                                                <div class="box-header">
+                                                    <h2>Khuyến mãi</h2>
+                                                </div>
+                                                <div class="box-content" id="discount-promo--product">
+                                                    <div class="discount-promo--content">
+                                                        <div class="discount-promo--list">
+                                                            <ul>
+                                                                <li>
+                                                                    <div class="line-discount">
+                                                                        <span>Giảm ngay 100K khi mua Micrsoft Office kèm Laptop tại GEARVN.</span>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="line-discount">
+                                                                        <span>Ưu đãi 500.000đ khi nâng cấp RAM dành cho laptop.</span>
+                                                                    </div></li>
+                                                                <li>
+                                                                    <div class="line-discount">
+                                                                        <span>Ưu đãi 50.000đ khi mua thêm túi chống sốc kèm Laptop.</span>
+                                                                    </div></li>
+                                                                <li>
+                                                                    <div class="line-discount">
+                                                                        <span>Ưu đãi thêm 500.000đ khi mua thêm balo ASUS ROG với Laptop.</span>
+                                                                    </div></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+                </div>
+            </div>
+            <div class="product-inner">
+                <div class="product-block">
+                    <div class="product-heading">
+                        <h2>Mô tả sản phẩm</h2>
+                    </div>
+                    <div class="product-wrap">
+                        <div class="product-desc--content">
+                            <div class="desc-content">
+                                <div class="pro-desc">
+                                    <input id="Show" type="checkbox">
+                                    <p class="text-md"> 
+                                        Laptop gaming là một thiết bị di động mạnh mẽ và linh hoạt được thiết kế đặc biệt để đáp ứng nhu cầu cao cấp của người chơi game đương đại. Với sự tiện lợi của việc mang theo mọi nơi, laptop gaming không chỉ là một công cụ giải trí mà còn là một trung tâm giải đốc chuyên nghiệp cho những người đam mê game.
+
+                                        Một trong những điểm nổi bật của laptop gaming là sức mạnh xử lý đỉnh cao, được trang bị các vi xử lý đa nhân và card đồ họa cấp cao. Điều này giúp đảm bảo rằng người dùng có thể chạy các trò chơi đồ họa nặng một cách mượt mà và không gặp phải tình trạng giật lag. Khả năng đồ họa xuất sắc của laptop gaming không chỉ giúp trải nghiệm game trở nên sống động, mà còn làm tăng tính chất thẩm mỹ của mọi chi tiết trên màn hình.
+
+                                        Màn hình của laptop gaming thường có kích thước lớn và độ phân giải cao, mang lại trải nghiệm xem hình ảnh sắc nét và chân thực. Các công nghệ hiển thị như IPS hoặc OLED cung cấp góc nhìn rộng và màu sắc chính xác, giúp người chơi tận hưởng trò chơi với chất lượng hình ảnh tối ưu.
+
+                                        Không chỉ dừng lại ở màn hình, âm thanh của laptop gaming cũng được chăm sóc đặc biệt. Công nghệ âm thanh vòm 3D hay hệ thống loa công suất lớn
+                                    </p>
+
+                                   <div class="content-more">
+                                        <p class="text-md">
+                                            Đối với người chơi game, trải nghiệm âm thanh không kém phần quan trọng như hình ảnh. Laptop gaming thường được trang bị công nghệ âm thanh tiên tiến như Dolby Atmos hoặc DTS:X, mang lại âm thanh vòm sống động và chi tiết. Các loa stereo hoặc hệ thống loa kép với công suất cao giúp người dùng nghe rõ từng chi tiết âm thanh trong trò chơi, tạo ra không gian âm thanh mở rộng.
+    
+                                            Với các trò chơi ngày nay đòi hỏi sự kết nối mạnh mẽ và ổn định, laptop gaming thường được trang bị các cổng kết nối đa dạng như USB Type-C, HDMI, DisplayPort, và cổng Ethernet. Công nghệ kết nối không dây như Wi-Fi 6 giúp tối ưu hóa tốc độ truyền dữ liệu, đảm bảo rằng người chơi có thể trải nghiệm trực tuyến mà không gặp phải tình trạng lag.
+    
+                                            Ngoài ra, laptop gaming cũng chú trọng đến khả năng tản nhiệt để duy trì hiệu suất ổn định trong thời gian dài sử dụng. Hệ thống tản nhiệt tiên tiến, với các quạt làm mát và các ống tản nhiệt đồng bộ, giúp duy trì nhiệt độ ổn định và ngăn chặn hiện tượng quá nhiệt.
+    
+                                            Thiết kế của laptop gaming cũng thường mang đậm phong cách gaming với đèn LED đa dạng, bàn phím có đèn nền RGB, và các chi tiết thiết kế độc đáo. Bạn cũng có thể tận hưởng trải nghiệm nhập liệu tốt nhất với bàn phím có switch cơ, cùng với touchpad nhạy bén hoặc một số laptop gaming thậm chí có thêm bảng cảm ứng với các chức năng đặc biệt.
+    
+                                            Tóm lại, laptop gaming không chỉ là một công cụ để chơi game mà còn là một thiết bị đa năng, đáp ứng đầy đủ nhu cầu giải trí và công việc của người dùng hiện đại. Sự kết hợp giữa hiệu suất mạnh mẽ, trải nghiệm đồ họa và âm thanh xuất sắc, cùng với thiết kế độc đáo, làm cho laptop gaming trở thành một lựa chọn hấp dẫn cho những người đam mê công nghệ và game.
+
+                                        </p>
+                                        <div class="Show-more-info">
+                                            <label for="Show">Thu gọn bài viết</label>
+                                        </div>
+                                   </div>
+                                   <div class="Show-more-info">
+                                    <div>...</div>
+                                    <label for="Show">Mở rộng bài viết</label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/with}}
+<script src="/javascripts/product_details.js"></script>

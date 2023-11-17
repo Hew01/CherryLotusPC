@@ -21,8 +21,9 @@ class ProductController {
     // [GET] /products/details/:id 
     async getProductDetail (req, res, next) {
         try {
-            const product = await productModel.findOne({ _id : req.params.id })        
-            res.render('product_detail', { product } )     
+            const product = await productModel.findOne({ _id : req.params.id })  
+            const resultProduct = product.toObject()
+            res.render('product_detail', { product : resultProduct } )     
         }   
         catch(err) {
             console.log(err)
