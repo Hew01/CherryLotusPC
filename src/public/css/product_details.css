@@ -218,7 +218,13 @@ label {
     border-radius: 3px;
     padding: 3px 13px;
     margin-top: 12px;
+    color: #4fa4fb;
+    font-weight: bolder;
 }
+
+/* label:hover{
+    font-weight: bolder;
+} */
 
 .Show-more-info{
     text-align: center;

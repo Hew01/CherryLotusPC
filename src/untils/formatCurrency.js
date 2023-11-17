@@ -1,3 +1,4 @@
 formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-DE').format(value)
+    return new Intl.NumberFormat('vi-VN').format(value)
 }
+

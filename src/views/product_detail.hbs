@@ -1,3 +1,4 @@
+{{>navigation}}
 {{#with product}}
 <div id="detail-product" class="product-layout">
     <div class="product-body">
@@ -39,7 +40,7 @@
                                     </div>
                                     <div class="info-bottom">
                                         <div class="product-price">
-                                            <span class="pro-price">{{this.price}}đ</span>
+                                            <span class="pro-price"> <script>var price = formatCurrency({{this.price}})</script>{{price}}đ</span>
                                             {{!-- <span class="del-price">20.990.000đ</span>
                                             <span class="pro-percent"> -10%</span> --}}
                                         </div>
@@ -154,4 +155,4 @@
     </div>
 </div>
 {{/with}}
-<script src="/javascripts/product_details.js"></script>
+<script src="/javascripts/product_details.js" type="module"></script>
