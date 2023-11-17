@@ -1,5 +1,6 @@
 const cartModel = require('../models/cart')
 const productModel = require('../models/product')
+const { mongooseToObject, mongooseToObjectAll } = require('../../untils')
 
 class CartController {
     //[GET] /cart/:id
@@ -17,7 +18,7 @@ class CartController {
                 }
             })
         }
-        res.render('cart', { products: productsResult })
+        res.render('cart', { products: mongooseToObjectAll(productsResult) })
     }
 }
 

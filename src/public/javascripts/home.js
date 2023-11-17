@@ -1,8 +1,39 @@
 "use strict";
 // logic for header, modal and form
-window.addEventListener("DOMContentLoaded", () => {
-  const $ = document.querySelector.bind(document);
-  const $$ = document.querySelectorAll.bind(document);
+
+window.addEventListener('DOMContentLoaded', () => {
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+
+    const headerLoginBtnElement = $('.header__login-btn')
+    const headerSignUpBtnElement = $('.header__signup-btn')
+    const modalElement = $('.modal')
+    const loginFormElement = $('.login-form')
+    const signUpFormElement = $('.signup-form')
+    const forgotPasswordFormElement = $('.forgot-password-form')
+    const formCloseBtnElements = $$('.form__close-btn')
+    const navigateForgotPasswordBtnElement = $('.form__forgot-password')
+    const navigateSignUpBtnElement = $('.signup-navigate-button')
+    const navigateLoginBtnElements = $$('.login-navigate-button')
+    const loginSubmitBtnElement = $('.form__login-btn')
+    const signUpSubmitBtnElement = $('.form__signup-btn')
+    const formInputs = $$('.form__input')
+    const forgotPasswordSubmitBtnElement = $('.form__forgot-password-submit-btn')
+    const headerAccountBoxElement = $('.header__account-box')
+    const headerAccountTextElement = $('.header__account-btn .header__text')
+    const headerUsernameElement = $('.header__user-info p')
+    const headerLogoutBtnElement = $('.header__logout-btn')
+    const headerCartLinkElement = $('.header__cart a')
+
+    // function check valid email 
+    const isValidEmail = (email) => {
+        return String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+    };
+
 
   const headerLoginBtnElement = $(".header__login-btn");
   const headerSignUpBtnElement = $(".header__signup-btn");
