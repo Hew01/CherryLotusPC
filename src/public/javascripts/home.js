@@ -1,42 +1,11 @@
 "use strict";
 // logic for header, modal and form
-
 window.addEventListener('DOMContentLoaded', () => {
-    const $ = document.querySelector.bind(document)
-    const $$ = document.querySelectorAll.bind(document)
+  const $ = document.querySelector.bind(document)
+  const $$ = document.querySelectorAll.bind(document)
 
-    const headerLoginBtnElement = $('.header__login-btn')
-    const headerSignUpBtnElement = $('.header__signup-btn')
-    const modalElement = $('.modal')
-    const loginFormElement = $('.login-form')
-    const signUpFormElement = $('.signup-form')
-    const forgotPasswordFormElement = $('.forgot-password-form')
-    const formCloseBtnElements = $$('.form__close-btn')
-    const navigateForgotPasswordBtnElement = $('.form__forgot-password')
-    const navigateSignUpBtnElement = $('.signup-navigate-button')
-    const navigateLoginBtnElements = $$('.login-navigate-button')
-    const loginSubmitBtnElement = $('.form__login-btn')
-    const signUpSubmitBtnElement = $('.form__signup-btn')
-    const formInputs = $$('.form__input')
-    const forgotPasswordSubmitBtnElement = $('.form__forgot-password-submit-btn')
-    const headerAccountBoxElement = $('.header__account-box')
-    const headerAccountTextElement = $('.header__account-btn .header__text')
-    const headerUsernameElement = $('.header__user-info p')
-    const headerLogoutBtnElement = $('.header__logout-btn')
-    const headerCartLinkElement = $('.header__cart a')
-
-    // function check valid email 
-    const isValidEmail = (email) => {
-        return String(email)
-          .toLowerCase()
-          .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          );
-    };
-
-
-  const headerLoginBtnElement = $(".header__login-btn");
-  const headerSignUpBtnElement = $(".header__signup-btn");
+  const headerLoginBtnElements = $$(".header__login-btn");
+  const headerSignUpBtnElements = $$(".header__signup-btn");
   const modalElement = $(".modal");
   const loginFormElement = $(".login-form");
   const signUpFormElement = $(".signup-form");
@@ -87,15 +56,19 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // handle events
-  headerLoginBtnElement.onclick = function (e) {
-    modalElement.classList.add("active");
-    loginFormElement.classList.add("active");
-  };
-
-  headerSignUpBtnElement.onclick = function (e) {
-    modalElement.classList.add("active");
-    signUpFormElement.classList.add("active");
-  };
+  headerLoginBtnElements.forEach(btn => {
+    btn.onclick = function(e) {
+      modalElement.classList.add("active");
+      loginFormElement.classList.add("active");
+    }
+  })
+ 
+  headerSignUpBtnElements.forEach(btn => {
+      btn.onclick = function(e) {
+        modalElement.classList.add("active");
+        signUpFormElement.classList.add("active");
+      }
+  })
 
   formCloseBtnElements.forEach((btn) => {
     btn.onclick = function (e) {
@@ -103,23 +76,25 @@ window.addEventListener('DOMContentLoaded', () => {
       loginFormElement.classList.remove("active");
       forgotPasswordFormElement.classList.remove("active");
       modalElement.classList.remove("active");
-      // clear focus effects
       clearInputFields();
     };
   });
 
   navigateSignUpBtnElement.onclick = function (e) {
+    clearInputFields()
     loginFormElement.classList.remove("active");
     signUpFormElement.classList.add("active");
   };
 
   navigateForgotPasswordBtnElement.onclick = function (e) {
+    clearInputFields()
     loginFormElement.classList.remove("active");
     forgotPasswordFormElement.classList.add("active");
   };
 
   navigateLoginBtnElements.forEach((btn) => {
     btn.onclick = function (e) {
+      clearInputFields()
       signUpFormElement.classList.remove("active");
       forgotPasswordFormElement.classList.remove("active");
       loginFormElement.classList.add("active");
@@ -147,8 +122,8 @@ window.addEventListener('DOMContentLoaded', () => {
     window.location.href = "/";
   };
 
+  // logic for submit login form
   loginSubmitBtnElement.onclick = function (e) {
-    // logic for submit login form
     e.preventDefault();
     const emailElement = e.target.parentElement.querySelector(
       "input[name|='email']"
@@ -207,9 +182,10 @@ window.addEventListener('DOMContentLoaded', () => {
       });
   };
 
+  // logic for signUp form
   signUpSubmitBtnElement.onclick = function (e) {
-    // logic for signUp form
     e.preventDefault();
+    console.log('Clicked')
     const emailElement = e.target.parentElement.querySelector(
       "input[name|='email']"
     );
