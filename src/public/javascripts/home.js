@@ -185,7 +185,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // logic for signUp form
   signUpSubmitBtnElement.onclick = function (e) {
     e.preventDefault();
-    console.log('Clicked')
     const emailElement = e.target.parentElement.querySelector(
       "input[name|='email']"
     );

@@ -11,10 +11,6 @@ const cartSchema = new Schema({
         type: String,
         default : 'Active'
     },
-    modifiedOn : {
-        type : Date,
-        default : Date.now()
-    },
     products : [
         {
             productId : {

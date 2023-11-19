@@ -113,6 +113,12 @@
   justify-content: center;
 }
 
+.header__action-item:hover .header__action-link span , 
+.header__action-item:hover .header__action-link i {
+  filter: brightness(0.8);
+  transition: all ease-in 0.2s;
+}
+
 .header__text {
   color: #fff;
   font-size: 1.4rem;
