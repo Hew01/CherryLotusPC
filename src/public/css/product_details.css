@@ -45,7 +45,7 @@
 }
 
 /* SHOW PRODUCT NAME */
-.product-layout .product-info .product-name {
+.inner .product-info .product-name {
     margin-bottom: 8px;
 }
 
@@ -55,24 +55,24 @@
     text-decoration: line-through;
 }
 
-.product-layout .product-info {
+.inner .product-info {
     position: relative;
 }
 
-.product-layout .product-info .product-price {
+.inner .product-info .product-price {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.product-layout .product-info .product-price span.pro-price {
+.inner .product-info .product-price span.pro-price {
     font-size: 32px;
     line-height: 40px;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-.product-layout .product-info .product-price span.del-price {
+.inner .product-info .product-price span.del-price {
     font-size: 18px;
     line-height: 22px;
     color: #6D6E72;
@@ -80,7 +80,7 @@
     font-weight: 400;
 }
 
-.product-layout .product-info .product-price span.pro-percent {
+.inner .product-info .product-price span.pro-percent {
     font-size: 12px;
     display: inline-block;
     padding: 3px 8px;
@@ -94,7 +94,7 @@
 
 /* SHOW SELECT IN DETAIL */
 
-.product-layout .product-info .product-action button {
+.inner .product-info .product-action button {
     text-align: center;
     padding: 10px 10px 14px;
     color: #fff;
@@ -126,16 +126,16 @@ button, select {
     font-size: 15px;
 }
 
-.product-layout .product-info .product-action button span.main-text {
+.inner .product-info .product-action button span.main-text {
     font-weight: 600;
     font-size: 18px;
 }
 
-.product-layout .product-info .product-action button span {
+.inner .product-info .product-action button span {
     display: block;
 }
 
-.product-layout .product-info .product-action button span.sub-text {
+.inner .product-info .product-action button span.sub-text {
     font-weight: 400;
     font-size: 14px;
     margin-top: 3px;
@@ -143,33 +143,33 @@ button, select {
 
 /* DISCOUNT PROMO BOX */
 
-.product-layout .product-info .product-promo-box {
+.inner .product-info .product-promo-box {
     border: 1px solid #CFCFCF;
     border-radius: 4px;
     overflow: hidden;
     margin: 16px 0 0 0;
 }
 
-.product-layout .product-info .product-promo-box .box-header {
+.inner .product-info .product-promo-box .box-header {
     background: #CFCFCF;
     display: flex;
     align-items: center;
     padding: 12px 20px;
 }
 
-.product-layout .product-info .product-promo-box .box-content {
+.inner .product-info .product-promo-box .box-content {
     min-height: 0;
     transition: height 1s ease;
     padding: 6px 0;
 }
 
-.product-layout .product-info .product-promo-box .box-content ul li {
+.inner .product-info .product-promo-box .box-content ul li {
     position: relative;
     padding: 6px 24px;
     display: flex;
 }
 
-.product-layout .product-info .product-promo-box .box-content ul li:before {
+.inner .product-info .product-promo-box .box-content ul li:before {
     content: '';
     border-radius: 50%;
     height: 16px;
@@ -183,7 +183,7 @@ button, select {
     margin-top: 3px;
 }
 
-.product-layout .product-info .product-promo-box .box-content ul li > div{
+.inner .product-info .product-promo-box .box-content ul li > div{
     width: calc(100% = 28px);
 }
 
@@ -191,7 +191,7 @@ button, select {
     text-overflow: ellipsis;
 }
 
-.product-layout .text-md {
+.inner .text-md {
     font-size: 1.8rem;
 }
 

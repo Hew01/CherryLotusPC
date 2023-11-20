@@ -13,7 +13,7 @@ const app = express()
 const liveReloadServer = livereLoad.createServer()
 
 // apply midlewares
-// app.use(bodyParser.json())
+app.use(bodyParser.json())
 app.use(express.json({
     type: "*/*"
 }))
