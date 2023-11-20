@@ -9,143 +9,145 @@
     <link rel="stylesheet" type="text/css" href="/css/base.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
     <link rel="stylesheet" type="text/css" href="/css/sales.css">
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="/css/showroom.css">
+    <link rel="stylesheet" type="text/css" href="/css/product_details.css">
 </head>
 <body>
     <div class="app">
         {{> header}}
         <main class="container">
-            {{{body}}}
+            {{{body}}}            
             <div class="modal">
-    <div class="modal__container">
-        {{!-- Login form --}}
-        <div class="login-form ">
-            <div class="form__header">
-                <h2 class="form__title">Đăng nhập tài khoản</h2>
-                <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <form action="/users/login" method="POST" class="form">
-                <div class="form__group">
-                    <label for="email">Email:</label>
-                    <div>
-                        <input name="email" placeholder="Enter your email" type="email" required class="form__input" spellcheck="false" autocomplete="true"> 
-                        <span class="form__error-message"></span>
+                <div class="modal__container">
+                    {{!-- Login form --}}
+                    <div class="login-form">
+                        <div class="form__header">
+                            <h2 class="form__title">Đăng nhập tài khoản</h2>
+                            <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <form action="/users/login" method="POST" class="form">
+                            <div class="form__group">
+                                <label for="email">Email:</label>
+                                <div>
+                                    <input name="email" placeholder="Enter your email" type="email" required class="form__input" spellcheck="false" autocomplete="true"> 
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="password">Mật khẩu:</label>
+                                <div>
+                                    <input name="password" placeholder="Enter your password" type="password" required class="form__input" spellcheck="false" autocomplete="true">
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+                            <div class="form__group">
+                                <span class="btn form__forgot-password">Quên mật khẩu ?</span>
+                            </div>
+                            <button class="btn form__login-btn">ĐĂNG NHẬP</button>
+                        </form>
+
+                        <div class="form__horizontal-line">
+                            <span>Hoặc đăng nhập bằng</span>
+                            <div></div>
+                        </div>
+
+                        <div class="form__socials">
+                            <button class="btn google">
+                                <i class="fa-brands fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button class="btn facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+                        <div class="form__navigate-question">Bạn chưa có tài khoản? <span class="btn signup-navigate-button">Đăng ký ngay!</span></div>
+                    </div>
+
+                    {{!-- Signup form --}}
+                    <div class="signup-form">
+                        <div class="form__header">
+                            <h2 class="form__title">Đăng ký tài khoản</h2>
+                            <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <form action="/users/register" method="POST" class="form">
+                            <div class="form__group">
+                                <label for="username" style="min-width: 160px;">Tên đăng nhập:</label>
+                                <div>
+                                    <input name="username" placeholder="Enter you username" type="text" required class="form__input" spellcheck="false"> 
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+
+                            <div class="form__group">
+                                <label for="email" style="min-width: 160px;">Email:</label>
+                                <div >
+                                    <input name="email" placeholder="Enter you email" type="email" required class="form__input" spellcheck="false"> 
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="password" style="min-width: 160px;">Mật khẩu:</label>
+                                <div>
+                                    <input name="password" id="password" placeholder="Enter your password" type="password" required class="form__input" spellcheck="false">
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+                        
+                            <div class="form__group">
+                                <label for="confirmation" style="min-width: 160px;">Xác nhận mật khẩu:</label>
+                                <div>
+                                    <input placeholder="Enter your confirmation" id="confirmation" type="password" required class="form__input" spellcheck="false">
+                                    <span class="form__error-message">Mật khẩu xác nhận không chính xác</span>
+                                </div>
+                            </div>
+                        
+                            <button class="btn form__signup-btn">ĐĂNG KÝ</button>
+                        </form>
+
+                        <div class="form__horizontal-line">
+                            <span>Hoặc đăng ký bằng</span>
+                            <div></div>
+                        </div>
+
+                        <div class="form__socials">
+                            <button class="btn google">
+                                <i class="fa-brands fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button class="btn facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+                        <div class="form__navigate-question">Bạn đã có tài khoản? <span class="btn login-navigate-button">Đăng nhập ngay!</span></div>
+                    </div>
+
+                    {{!-- Forgot password form  --}}
+                    <div class="forgot-password-form">
+                        <div class="form__header">
+                            <h2 class="form__title">Quên mật khẩu</h2>
+                            <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <form action="#" method="POST" class="form">
+                            <div class="form__group">
+                                <label for="email">Your email:</label>
+                                <div>
+                                    <input name="username" placeholder="Enter you username" type="email" required class="form__input" spellcheck="false"> 
+                                    <span class="form__error-message"></span>
+                                </div>
+                            </div>
+
+                            <button class="btn form__forgot-password-submit-btn">NHẬN MÃ XÁC THỰC</button>
+                        </form>
+
+                        <div class="form__navigate-question">Đã nhớ mật khẩu? <span class="btn login-navigate-button">Đăng nhập ngay!</span></div>
                     </div>
                 </div>
-                
-                <div class="form__group">
-                    <label for="password">Mật khẩu:</label>
-                    <div>
-                        <input name="password" placeholder="Enter your password" type="password" required class="form__input" spellcheck="false" autocomplete="true">
-                        <span class="form__error-message"></span>
-                    </div>
-                </div>
-                <div class="form__group">
-                    <span class="btn form__forgot-password">Quên mật khẩu ?</span>
-                </div>
-                <button class="btn form__login-btn">ĐĂNG NHẬP</button>
-            </form>
-
-            <div class="form__horizontal-line">
-                <span>Hoặc đăng nhập bằng</span>
-                <div></div>
             </div>
-
-            <div class="form__socials">
-                <button class="btn google">
-                    <i class="fa-brands fa-google"></i>
-                    <span>Google</span>
-                </button>
-                <button class="btn facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>Facebook</span>
-                </button>
-            </div>
-            <div class="form__navigate-question">Bạn chưa có tài khoản? <span class="btn signup-navigate-button">Đăng ký ngay!</span></div>
-        </div>
-
-        {{!-- Signup form --}}
-        <div class="signup-form">
-            <div class="form__header">
-                <h2 class="form__title">Đăng ký tài khoản</h2>
-                <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <form action="/users/register" method="POST" class="form">
-                <div class="form__group">
-                    <label for="username" style="min-width: 160px;">Tên đăng nhập:</label>
-                    <div>
-                        <input name="username" placeholder="Enter you username" type="text" required class="form__input" spellcheck="false"> 
-                        <span class="form__error-message"></span>
-                    </div>
-                </div>
-
-                <div class="form__group">
-                    <label for="email" style="min-width: 160px;">Email:</label>
-                    <div >
-                        <input name="email" placeholder="Enter you email" type="email" required class="form__input" spellcheck="false"> 
-                        <span class="form__error-message"></span>
-                    </div>
-                </div>
-                
-                <div class="form__group">
-                    <label for="password" style="min-width: 160px;">Mật khẩu:</label>
-                    <div>
-                        <input name="password" placeholder="Enter your password" type="password" required class="form__input" spellcheck="false">
-                        <span class="form__error-message"></span>
-                    </div>
-                </div>
-               
-                <div class="form__group">
-                    <label for="confirmation" style="min-width: 160px;">Xác nhận mật khẩu:</label>
-                    <div>
-                        <input placeholder="Enter your confirmation" type="password" required class="form__input" spellcheck="false">
-                        <span class="form__error-message">Mật khẩu xác nhận không chính xác</span>
-                    </div>
-                </div>
-               
-                <button class="btn form__signup-btn">ĐĂNG KÝ</button>
-            </form>
-
-            <div class="form__horizontal-line">
-                <span>Hoặc đăng ký bằng</span>
-                <div></div>
-            </div>
-
-            <div class="form__socials">
-                <button class="btn google">
-                    <i class="fa-brands fa-google"></i>
-                    <span>Google</span>
-                </button>
-                <button class="btn facebook">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>Facebook</span>
-                </button>
-            </div>
-            <div class="form__navigate-question">Bạn đã có tài khoản? <span class="btn login-navigate-button">Đăng nhập ngay!</span></div>
-        </div>
-
-        {{!-- Forgot password form  --}}
-        <div class="forgot-password-form">
-            <div class="form__header">
-                <h2 class="form__title">Quên mật khẩu</h2>
-                <button class="btn form__close-btn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <form action="#" method="POST" class="form">
-                <div class="form__group">
-                    <label for="email">Your email:</label>
-                    <div>
-                        <input name="username" placeholder="Enter you username" type="email" required class="form__input" spellcheck="false"> 
-                        <span class="form__error-message"></span>
-                    </div>
-                </div>
-
-                <button class="btn form__forgot-password-submit-btn">NHẬN MÃ XÁC THỰC</button>
-            </form>
-
-            <div class="form__navigate-question">Đã nhớ mật khẩu? <span class="btn login-navigate-button">Đăng nhập ngay!</span></div>
-        </div>
-    </div>
-</div>
         </main>
         {{> footer}}
     </div>

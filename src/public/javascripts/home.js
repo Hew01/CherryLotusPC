@@ -1,11 +1,12 @@
 "use strict";
-// logic for header, modal and form
-window.addEventListener("DOMContentLoaded", () => {
-  const $ = document.querySelector.bind(document);
-  const $$ = document.querySelectorAll.bind(document);
 
-  const headerLoginBtnElement = $(".header__login-btn");
-  const headerSignUpBtnElement = $(".header__signup-btn");
+// logic for header, modal and form
+window.addEventListener('DOMContentLoaded', () => {
+  const $ = document.querySelector.bind(document)
+  const $$ = document.querySelectorAll.bind(document)
+
+  const headerLoginBtnElements = $$(".header__login-btn");
+  const headerSignUpBtnElements = $$(".header__signup-btn");
   const modalElement = $(".modal");
   const loginFormElement = $(".login-form");
   const signUpFormElement = $(".signup-form");
@@ -23,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const headerUsernameElement = $(".header__user-info p");
   const headerLogoutBtnElement = $(".header__logout-btn");
   const headerCartLinkElement = $(".header__cart a");
+  const headerCartBadge = $('.header__cart-badge')
 
   // function check valid email
   const isValidEmail = (email) => {
@@ -32,6 +34,13 @@ window.addEventListener("DOMContentLoaded", () => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+
+  const updateCartNumber = (currentUser) => {
+    fetch(`http://localhost:3000/cart/number-product/${currentUser._id}`)
+      .then(response => response.json())
+      .then(data => headerCartBadge.innerText = data.numberOfProduct)
+      .catch(err => console.log(err))
+  }
 
   // check current user
   const checkCurrentUser = () => {
@@ -45,6 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
       headerAccountTextElement.innerText = currentUser.username;
       headerCartLinkElement.setAttribute("href", `/cart/${currentUser?._id}`);
       headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`;
+      updateCartNumber(currentUser)
     }
   };
 
@@ -56,15 +66,23 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   // handle events
-  headerLoginBtnElement.onclick = function (e) {
-    modalElement.classList.add("active");
-    loginFormElement.classList.add("active");
-  };
+  window.onload = () => {
+    updateCartNumber(JSON.parse(localStorage.getItem('currentUser')))
+  }
 
-  headerSignUpBtnElement.onclick = function (e) {
-    modalElement.classList.add("active");
-    signUpFormElement.classList.add("active");
-  };
+  headerLoginBtnElements.forEach(btn => {
+    btn.onclick = function(e) {
+      modalElement.classList.add("active");
+      loginFormElement.classList.add("active");
+    }
+  })
+ 
+  headerSignUpBtnElements.forEach(btn => {
+      btn.onclick = function(e) {
+        modalElement.classList.add("active");
+        signUpFormElement.classList.add("active");
+      }
+  })
 
   formCloseBtnElements.forEach((btn) => {
     btn.onclick = function (e) {
@@ -72,23 +90,25 @@ window.addEventListener("DOMContentLoaded", () => {
       loginFormElement.classList.remove("active");
       forgotPasswordFormElement.classList.remove("active");
       modalElement.classList.remove("active");
-      // clear focus effects
       clearInputFields();
     };
   });
 
   navigateSignUpBtnElement.onclick = function (e) {
+    clearInputFields()
     loginFormElement.classList.remove("active");
     signUpFormElement.classList.add("active");
   };
 
   navigateForgotPasswordBtnElement.onclick = function (e) {
+    clearInputFields()
     loginFormElement.classList.remove("active");
     forgotPasswordFormElement.classList.add("active");
   };
 
   navigateLoginBtnElements.forEach((btn) => {
     btn.onclick = function (e) {
+      clearInputFields()
       signUpFormElement.classList.remove("active");
       forgotPasswordFormElement.classList.remove("active");
       loginFormElement.classList.add("active");
@@ -116,8 +136,8 @@ window.addEventListener("DOMContentLoaded", () => {
     window.location.href = "/";
   };
 
+  // logic for submit login form
   loginSubmitBtnElement.onclick = function (e) {
-    // logic for submit login form
     e.preventDefault();
     const emailElement = e.target.parentElement.querySelector(
       "input[name|='email']"
@@ -170,14 +190,16 @@ window.addEventListener("DOMContentLoaded", () => {
         clearInputFields();
         modalElement.classList.remove("active");
         loginFormElement.classList.remove("active");
+
+        updateCartNumber(currentUser)
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
+  // logic for signUp form
   signUpSubmitBtnElement.onclick = function (e) {
-    // logic for signUp form
     e.preventDefault();
     const emailElement = e.target.parentElement.querySelector(
       "input[name|='email']"
