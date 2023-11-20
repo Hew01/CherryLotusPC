@@ -1,4 +1,5 @@
 "use strict";
+
 // logic for header, modal and form
 window.addEventListener('DOMContentLoaded', () => {
   const $ = document.querySelector.bind(document)
@@ -23,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const headerUsernameElement = $(".header__user-info p");
   const headerLogoutBtnElement = $(".header__logout-btn");
   const headerCartLinkElement = $(".header__cart a");
+  const headerCartBadge = $('.header__cart-badge')
 
   // function check valid email
   const isValidEmail = (email) => {
@@ -32,6 +34,13 @@ window.addEventListener('DOMContentLoaded', () => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+
+  const updateCartNumber = (currentUser) => {
+    fetch(`http://localhost:3000/cart/number-product/${currentUser._id}`)
+      .then(response => response.json())
+      .then(data => headerCartBadge.innerText = data.numberOfProduct)
+      .catch(err => console.log(err))
+  }
 
   // check current user
   const checkCurrentUser = () => {
@@ -45,6 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
       headerAccountTextElement.innerText = currentUser.username;
       headerCartLinkElement.setAttribute("href", `/cart/${currentUser?._id}`);
       headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`;
+      updateCartNumber(currentUser)
     }
   };
 
@@ -56,6 +66,10 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   // handle events
+  window.onload = () => {
+    updateCartNumber(JSON.parse(localStorage.getItem('currentUser')))
+  }
+
   headerLoginBtnElements.forEach(btn => {
     btn.onclick = function(e) {
       modalElement.classList.add("active");
@@ -176,6 +190,8 @@ window.addEventListener('DOMContentLoaded', () => {
         clearInputFields();
         modalElement.classList.remove("active");
         loginFormElement.classList.remove("active");
+
+        updateCartNumber(currentUser)
       })
       .catch((err) => {
         console.log(err);

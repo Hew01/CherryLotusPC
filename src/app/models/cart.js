@@ -13,6 +13,7 @@ const cartSchema = new Schema({
     },
     products : [
         {
+            _id : false,
             productId : {
                 type: Schema.Types.ObjectId,
                 required : true,
@@ -26,7 +27,7 @@ const cartSchema = new Schema({
         }
     ]
 }, {
-    timestamps : true
+    timestamps : true,
 })
 
 module.exports = mongoose.model('carts', cartSchema)
