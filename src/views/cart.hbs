@@ -4,12 +4,12 @@
     <div class="shopping-cart">
     <div class="breadcrumb-wrap">
         <!-- Mua thêm sản phẩm -->
-        <div class="breadcrumb-cart">
+        <div class="breadcrumb-cart" style="min-height: 20px;">
             <a class="breadcrumb-cart--link-product" href="/">
                 <i class="fa-solid fa-angle-left breadcrumb-cart--icon"></i>
                 Mua thêm sản phẩm khác
             </a>
-            <a href="#">
+            <a class="back" href="#" >
                 <i class="fa-solid fa-angle-left breadcrumb-cart--icon"></i>
                 Trở về
             </a>
@@ -118,23 +118,13 @@
                         </div>
                         <!-- Giới tính + họ tên + số điện thoại -->
                         <div class="card-detail">
-                            <div class="gender">
-                                <div class="men-check">
-                                    <input type="radio" id="men" name="gender" value="Anh" checked>
-                                    <label for="">Anh</label>
-                                </div>
-                                <div class="women-check">
-                                <input type="radio" id="women" name="gender" value="Anh">
-                                <label for="">Chị</label>
-                                </div>
-                            </div>
                             <div class="input-customer">
                                 <div class="input-name text-box">
-                                    <input type="text" placeholder>
+                                    <input  id="name-customer" type="text" placeholder>
                                     <label class="label-text label-text-name">Nhập họ tên</label>
                                 </div>
                                 <div class="input-phone text-box">
-                                    <input type="text" placeholder>
+                                    <input  id="phone-customer" type="text" placeholder>
                                     <label class="label-text label-text-phone">Nhập số điện thoại</label>
                                 </div>
                             </div>
@@ -153,28 +143,28 @@
                             <!-- Địa chỉ nhận hàng -->
                             <div class="address-shipping">
                                 <div class="select-left select-box">
-                                <div class="select-option select-option1 select-option123">
-                                    <select name="" id="provinces" onchange="getProvinces(event)" class="form-data">
-                                    <option value="">Chọn Tỉnh, Thành phố</option>
-                                    </select>
-                                </div>
-                                <div class="select-option select-option2 select-option123">
-                                    <select name="" id="district" onchange="getDistricts(event)" class="form-data">
-                                    <option value="">Chọn Quận, Huyện</option>
-                                    </select>
-                                </div>
+                                    <div class="select-option select-option1 select-option123 ">
+                                        <select name="" id="provinces" onchange="getProvinces()" class="form-data">
+                                            <option  value="">Chọn Tỉnh, Thành phố</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-option select-option2 select-option123 ">
+                                        <select name="" id="district" onchange="getDistricts()" class="form-data">
+                                            <option value="">Chọn Quận, Huyện</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="select-right select-box">
-                                <div class="select-option select-option3 select-option123">
-                                    <select name="" id="wards"  class="form-data">
-                                    <option value="">Chọn Phường, Xã</option>
-                                    </select>
-                                </div>
-                                <div class="select-option select-option4 form-data">
-                                    <input type="text" placeholder class="form-data">
-                                    <label for="" class="label-text-address">Số nhà, tên đường</label>
-                                </div>
+                                    <div class="select-option select-option3 select-option123 ">
+                                        <select name="" id="wards"  class="form-data">
+                                            <option value="">Chọn Phường, Xã</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-option select-option4 form-data">
+                                        <input id="adress-home" type="text" placeholder class="form-data">
+                                        <label for="" class="label-text-address">Số nhà, tên đường</label>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Kết thúc địa chỉ nhận hàng -->
@@ -187,38 +177,6 @@
                                     <label for="" class="label-text-note">Lưu ý, yêu cầu khác (Không bắt buộc)</label>
                                 </div>
                                 <!-- Kết thúc Lưu ý, yêu cầu -->
-                                <!-- Bắt đầu nút Xuất hóa đơn -->
-                                <div class="export-bill">
-                                <div class="tick-export-bill">
-                                    <input type="checkbox" class="tick-input">
-                                    <label for="toggleCheckbox" class="tick-label">Xuất hóa đơn cho đơn hàng</label>
-                                </div>
-                                </div>
-                                <!-- Kết thúc nút Xuất hóa đơn -->
-                                <!--  Bắt đầu Thông tin công ty -->
-                                <div class="form-group" id="companyInfo">
-                                <div class="info-company">
-                                    <div class="name-company input-company">
-                                        <input type="text" class="text-input" placeholder>
-                                        <label for="" class="label-input label-company">Tên công ty</label>
-                                    </div>
-                                    <div class="address-company input-company">
-                                        <input type="text" placeholder class="text-input">
-                                        <label for="" class="label-input label-company">Địa chỉ công ty</label>
-                                    </div>
-                                    <div class="tax-email-group">
-                                    <div class="tax-id-company input-company tax-email">
-                                        <input type="text" placeholder class="text-input-tax text-input">
-                                        <label for="" class="label-input label-company">Mã số thuế</label>
-                                    </div>
-                                    <div class="email-company input-company tax-email">
-                                        <input type="text" placeholder class="text-input-email text-input">
-                                        <label for="" class="label-input label-company">Email</label>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <!-- Kết thúc phần thông tin công ty -->
                             </div>
                         <!-- Kết thúc phần ghi chú và xuất hóa đơn + Thông tin công ty-->
                         </div>
@@ -233,15 +191,15 @@
                     <ul>
                     <li class="line line1">
                         <span>Khách hàng:</span>
-                        <p>Khánh Duy Nguyễn</p>
+                        <p class="innerText-box"></p>
                     </li>
                     <li class="line line2">
                         <span>Số điện thoại:</span>
-                        <p>0339166220</p>
+                        <p class="innerText-box"></p>
                     </li>
                     <li class="line line3">
                         <span>Địa chỉ nhận hàng:</span>
-                        <p>Số 7, đường K, TTHC, Dĩ An, Bình Dương</p>
+                        <p class="innerText-box"></p>
                     </li>
                     <li class="line line4">
                         <span>Tạm tính:</span>
@@ -262,13 +220,54 @@
                 
                 <!-- Đặt hàng xong -->
                 <section class="complete-order">
-                    <span class="no-product--text">Cảm ơn bạn đã mua sản phẩm</span>
+                    <div class="order-mes-complete">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M18.125 5.8H16.25C16.25 3.7005 14.5719 2 12.5 2C10.4281 2 8.75 3.7005 8.75 5.8H6.875C5.84375 5.8 5 6.655 5 7.7V19.1C5 20.145 5.84375 21 6.875 21H18.125C19.1562 21 20 20.145 20 19.1V7.7C20 6.655 19.1562 5.8 18.125 5.8ZM10.625 9.6C10.625 10.1225 10.2031 10.55 9.6875 10.55C9.17188 10.55 8.75 10.1225 8.75 9.6V7.7H10.625V9.6ZM12.5 3.9C13.5312 3.9 14.375 4.755 14.375 5.8H10.625C10.625 4.755 11.4688 3.9 12.5 3.9ZM16.25 9.6C16.25 10.1225 15.8281 10.55 15.3125 10.55C14.7969 10.55 14.375 10.1225 14.375 9.6V7.7H16.25V9.6Z" fill="#1E9800"></path>
+							<path d="M10.954 19L8.70926 16.8743C8.32395 16.5095 8.32395 15.8959 8.70926 15.5311V15.5311C9.06636 15.1929 9.62564 15.1933 9.98224 15.532L10.954 16.455L15.0175 12.6032C15.3743 12.2649 15.9334 12.2648 16.2904 12.6028V12.6028C16.6759 12.9679 16.6759 13.5817 16.2904 13.9467L10.954 19Z" fill="white"></path>
+						</svg>
+                        <span class="complete-text">Đặt hàng thành công</span>
+                    </div>
+                    <div class="thank-text">
+                        <p>Cảm ơn quý khách đã cho GEARVN có cơ hội được phục vụ.</p>
+                        <p>Nhân viên GEARVN sẽ liên hệ với quý khách trong thời gian sớm nhất.</p>
+                    </div>
+                    <div class="form-product">
+                        <div class="div-flex header-form">
+                            <h2>Đơn hàng</h2>
+                            <a class="manage" href="#">Quản lý đơn hàng</a>
+                        </div>
+                        <div class="form-customer">
+                            <div class="div-flex line-one">
+                                <p class="left">• Khách hàng:</p>
+                                <p class="right final-info"></p>
+                            </div>
+                            <div class="div-flex line-two">
+                                <p class="left">• Số điện thoại:</p>
+                                <p class="right final-info"></p>
+                            </div>
+
+                            <div class="div-flex line-four">
+                                <p class="left">• Giao đến:</p>
+                                <p class="right final-info"></p>
+                            </div>
+                            <div class="div-flex line-five">
+                                <p class="left">• Tổng tiền:</p>
+                                <p class="right total-price-step-four">12.000.000đ</p>
+                            </div>
+                            <div class="div-flex line-six">
+                                <p class="left">• Hình thức thanh toán:</p>
+                                <p class="right">Thanh toán khi giao hàng (COD)</p>
+                            </div>
+                            <div class="status">
+                                <span>Đơn hàng chưa được thanh toán</span>
+                            </div>
+                        </div>
+                    </div>
                     <button class="btn buy-continue">
-                    <a href="/">Tiếp tục mua hàng</a>
+                        <a href="/">Tiếp tục mua hàng</a>
                     </button>
                 </section>
                 <!-- Kết thúc phần đặt hàng xong -->
-                <hr>
             <!-- Phần tổng tiền và đặt hàng -->
                 <div class="section-info-total">
                 <div class="info-shipping">
@@ -284,6 +283,10 @@
                 <div class="order-now">
                     <button>Đặt hàng ngay</button>
                 </div>
+                <div class="order-now-final">
+                    <button>Thanh toán</button>
+                </div>
+
                 <div class="form-payment">
                     <span>Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</span>
                 </div>
@@ -294,11 +297,6 @@
     </div>
 </div>
 
-<p>
-    {{#each products}}
-        {{name}}
-    {{/each}}   
-</p>
 <script src="/javascripts/cart.js"></script>
 <script src="/javascripts/home.js"></script>
 
