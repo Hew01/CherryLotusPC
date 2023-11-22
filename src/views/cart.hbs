@@ -1,7 +1,6 @@
 {{> navigation}}
 <!-- Cart -->
-<div>
-    <div class="shopping-cart">
+<div class="shopping-cart">
     <div class="breadcrumb-wrap">
         <!-- Mua thêm sản phẩm -->
         <div class="breadcrumb-cart" style="min-height: 20px;">
@@ -14,7 +13,6 @@
                 Trở về
             </a>
         </div>
-        <!-- Giỏ hàng -->
         <div class="cart-main">
         <!-- Phần header của cart-main -->
             <div class="header-cart">
@@ -51,65 +49,56 @@
                     </div>
                 </div>
             </div>
-            <!-- Phần thông tin sản phẩm đã chọn -->
+
             <div class="section-info-product">
                 <!-- Lúc chưa thêm sản phẩm vào giỏ hàng -->
-                <div class="no-product">
+                {{!-- <div class="no-product">
                     <img src="../img/icon/cart.png" alt="giỏ hàng trống" class="no-product__img">
                     <span class="no-product--text">Giỏ hàng của bạn đang trống</span>
                     <button class="btn buy-continue">
                         <a href="../product/index.html">Tiếp tục mua hàng</a>
                     </button>
-                </div>
-                <!-- Lúc có sản phẩm -->
-                <section class="product-cart active">
-                <!-- Phần hình ảnh và nút xóa sản phẩm -->
-                    <div class="product-cart__left">
-                        <!-- Hình ảnh sản phẩm -->
-                        <div class="product-cart__left--img">
-                            <img
-                                class="img-product-one"
-                                src="../img/product_img/product1.webp"
-                                alt="product1"
-                            />
+                </div> --}}
+
+                <section class="product-cart">
+                    {{#each products}}
+                        <div class="product-cart-item" data-id={{this.productId._id}} data-price={{this.productId.price}}>
+                            <div class="product-cart__left">
+                                <div class="product-cart__left--img">                                   
+                                    <img
+                                        class="Product Image"
+                                        src={{this.productId.images.[0]}}
+                                        alt="product"
+                                    />                                   
+                                </div>
+                                <a class="delete-product">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Xóa
+                                </a>
+                            </div>
+                            <div class="product-cart__right">
+                                <div class="product-cart-info">
+                                    <h3 class="product-cart__center--desc">
+                                        {{this.productId.name}}
+                                    </h3>
+                                    <div class="product-price">
+                                        {{this.productId.price}}
+                                    </div>
+                                </div>
+                                <div class="amount-product">
+                                    <button class="btn minus-plus minus">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span class="product-quantity">{{this.quantity}}</span>
+                                    <button class="btn minus-plus plus">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Nút xóa sản phẩm -->
-                        <div class="delete-product">
-                            <i class="fa-solid fa-trash-can"></i>
-                            <span>
-                                <a href="#" style="text-decoration: none; color: #6d6e72; font-size: 14px;">Xóa</a>
-                            </span>
-                        </div>
-                    </div>
-                <!-- Phần mô tả chi tiết sản phẩm -->
-                <div class="product-cart__center">
-                    <a href="#" class="product-cart__center--desc">
-                        <h3>
-                        Card màn hình GIGABYTE GeForce RTX 4060 Ti AERO OC 16G
-                        (GV-N406TAERO OC-16GD)
-                        </h3>
-                    </a>
-                </div>
-                <!-- Giá sản phẩm và số lượng sản phẩm -->
-                <div class="product-cart__right">
-                    <!-- Giá sản phẩm -->
-                    <div class="product-price">
-                        <span>15.990.000₫</span>
-                    </div>
-                    <!-- Số lương sản phẩm -->
-                    <div class="amount-product">
-                        <button class="minus-plus minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input class="mid-minus-plus" type="text" size="4" min="1" value="1" readonly/>
-                        <button class="minus-plus plus">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
+                    {{/each}}
                 </section>
-                <!-- Kết thúc phần lúc có sản phẩm -->
-                <!-- Thông tin khách hàng đặt hàng -->
+
                 <section style="width: 100%" class="info-customer">
                     <form style="width: 100%" action="">
                         <!-- Thông tin khách hàng -->
@@ -120,11 +109,11 @@
                         <div class="card-detail">
                             <div class="input-customer">
                                 <div class="input-name text-box">
-                                    <input  id="name-customer" type="text" placeholder>
+                                    <input  id="name-customer" type="text" placeholder="">
                                     <label class="label-text label-text-name">Nhập họ tên</label>
                                 </div>
                                 <div class="input-phone text-box">
-                                    <input  id="phone-customer" type="text" placeholder>
+                                    <input  id="phone-customer" type="text" placeholder="">
                                     <label class="label-text label-text-phone">Nhập số điện thoại</label>
                                 </div>
                             </div>
@@ -167,64 +156,57 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Kết thúc địa chỉ nhận hàng -->
 
-                            <!-- Bắt đầu phần ghi chú và xuất hóa đơn + thông tin công ty -->
                             <div class="note-box">
-                                <!-- Bắt đầu Lưu ý, yêu cầu -->
                                 <div class="text-note">
                                     <input type="text" class="input-text-note" placeholder="">
                                     <label for="" class="label-text-note">Lưu ý, yêu cầu khác (Không bắt buộc)</label>
                                 </div>
-                                <!-- Kết thúc Lưu ý, yêu cầu -->
                             </div>
-                        <!-- Kết thúc phần ghi chú và xuất hóa đơn + Thông tin công ty-->
                         </div>
                     </form>
                 </section>
-                <!-- Bắt đầu:  Thông tin đặt hàng => Chuyển từ thông tin mình điền sang -->
+
                 <section class="section-info-order">
-                <div class="info-order">
-                    <h2 class="info-order__header">
-                    Thông tin đặt hàng
-                    </h2>
-                    <ul>
-                    <li class="line line1">
-                        <span>Khách hàng:</span>
-                        <p class="innerText-box"></p>
-                    </li>
-                    <li class="line line2">
-                        <span>Số điện thoại:</span>
-                        <p class="innerText-box"></p>
-                    </li>
-                    <li class="line line3">
-                        <span>Địa chỉ nhận hàng:</span>
-                        <p class="innerText-box"></p>
-                    </li>
-                    <li class="line line4">
-                        <span>Tạm tính:</span>
-                        <p class="line--red">15.990.000₫</p>
-                    </li>
-                    <li class="line line5">
-                        <span>Phí vận chuyển:</span>
-                        <p class="line--red">Miễn phí</p>
-                    </li>
-                    <li class="line line6">
-                        <span>Tổng tiền:</span>
-                        <p class="line--red">15.990.000₫</p>
-                    </li>
-                    </ul>
-                </div>
+                    <div class="info-order">
+                        <h2 class="info-order__header">
+                        Thông tin đặt hàng
+                        </h2>
+                        <ul>
+                            <li class="line line1">
+                                <span>Khách hàng:</span>
+                                <p class="innerText-box"></p>
+                            </li>
+                            <li class="line line2">
+                                <span>Số điện thoại:</span>
+                                <p class="innerText-box"></p>
+                            </li>
+                            <li class="line line3">
+                                <span>Địa chỉ nhận hàng:</span>
+                                <p class="innerText-box"></p>
+                            </li>
+                            <li class="line line4">
+                                <span>Tạm tính:</span>
+                                <p class="line--red total-price-value"></p>
+                            </li>
+                            <li class="line line5">
+                                <span>Phí vận chuyển:</span>
+                                <p class="line--red">Miễn phí</p>
+                            </li>
+                            <li class="line line6">
+                                <span>Tổng tiền:</span>
+                                <p class="line--red total-price-value"></p>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
-                <!-- Kết thúc: Thông tin đặt hàng => Chuyển từ thông tin mình điền sang -->
                 
-                <!-- Đặt hàng xong -->
                 <section class="complete-order">
                     <div class="order-mes-complete">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M18.125 5.8H16.25C16.25 3.7005 14.5719 2 12.5 2C10.4281 2 8.75 3.7005 8.75 5.8H6.875C5.84375 5.8 5 6.655 5 7.7V19.1C5 20.145 5.84375 21 6.875 21H18.125C19.1562 21 20 20.145 20 19.1V7.7C20 6.655 19.1562 5.8 18.125 5.8ZM10.625 9.6C10.625 10.1225 10.2031 10.55 9.6875 10.55C9.17188 10.55 8.75 10.1225 8.75 9.6V7.7H10.625V9.6ZM12.5 3.9C13.5312 3.9 14.375 4.755 14.375 5.8H10.625C10.625 4.755 11.4688 3.9 12.5 3.9ZM16.25 9.6C16.25 10.1225 15.8281 10.55 15.3125 10.55C14.7969 10.55 14.375 10.1225 14.375 9.6V7.7H16.25V9.6Z" fill="#1E9800"></path>
-							<path d="M10.954 19L8.70926 16.8743C8.32395 16.5095 8.32395 15.8959 8.70926 15.5311V15.5311C9.06636 15.1929 9.62564 15.1933 9.98224 15.532L10.954 16.455L15.0175 12.6032C15.3743 12.2649 15.9334 12.2648 16.2904 12.6028V12.6028C16.6759 12.9679 16.6759 13.5817 16.2904 13.9467L10.954 19Z" fill="white"></path>
-						</svg>
+                            <path d="M18.125 5.8H16.25C16.25 3.7005 14.5719 2 12.5 2C10.4281 2 8.75 3.7005 8.75 5.8H6.875C5.84375 5.8 5 6.655 5 7.7V19.1C5 20.145 5.84375 21 6.875 21H18.125C19.1562 21 20 20.145 20 19.1V7.7C20 6.655 19.1562 5.8 18.125 5.8ZM10.625 9.6C10.625 10.1225 10.2031 10.55 9.6875 10.55C9.17188 10.55 8.75 10.1225 8.75 9.6V7.7H10.625V9.6ZM12.5 3.9C13.5312 3.9 14.375 4.755 14.375 5.8H10.625C10.625 4.755 11.4688 3.9 12.5 3.9ZM16.25 9.6C16.25 10.1225 15.8281 10.55 15.3125 10.55C14.7969 10.55 14.375 10.1225 14.375 9.6V7.7H16.25V9.6Z" fill="#1E9800"></path>
+                            <path d="M10.954 19L8.70926 16.8743C8.32395 16.5095 8.32395 15.8959 8.70926 15.5311V15.5311C9.06636 15.1929 9.62564 15.1933 9.98224 15.532L10.954 16.455L15.0175 12.6032C15.3743 12.2649 15.9334 12.2648 16.2904 12.6028V12.6028C16.6759 12.9679 16.6759 13.5817 16.2904 13.9467L10.954 19Z" fill="white"></path>
+                        </svg>
                         <span class="complete-text">Đặt hàng thành công</span>
                     </div>
                     <div class="thank-text">
@@ -252,7 +234,7 @@
                             </div>
                             <div class="div-flex line-five">
                                 <p class="left">• Tổng tiền:</p>
-                                <p class="right total-price-step-four">12.000.000đ</p>
+                                <p class="right total-price-value"></p>
                             </div>
                             <div class="div-flex line-six">
                                 <p class="left">• Hình thức thanh toán:</p>
@@ -267,40 +249,35 @@
                         <a href="/">Tiếp tục mua hàng</a>
                     </button>
                 </section>
-                <!-- Kết thúc phần đặt hàng xong -->
-            <!-- Phần tổng tiền và đặt hàng -->
-                <div class="section-info-total">
-                <div class="info-shipping">
-                    <div class="shipping-fee">
-                    <span>Phí vận chuyển:</span>
-                    <span>Miễn phí</span>
-                </div>
-                <div class="total-price">
-                    <span>Tổng tiền:</span>
-                    <span class="price-one-product">15.990.000₫</span>
-                </div>
-                </div>
-                <div class="order-now">
-                    <button>Đặt hàng ngay</button>
-                </div>
-                <div class="order-now-final">
-                    <button>Thanh toán</button>
-                </div>
 
-                <div class="form-payment">
-                    <span>Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</span>
-                </div>
+                <div class="section-info-total">
+                    <div class="info-shipping">
+                        <div class="shipping-fee">
+                        <span>Phí vận chuyển:</span>
+                        <span>Miễn phí</span>
+                    </div>
+                    <div class="total-price">
+                        <span>Tổng tiền:</span>
+                        <span class="total-price-value"></span>
+                    </div>
+                    </div>
+                    <div class="order-now">
+                        <button>Đặt hàng ngay</button>
+                    </div>
+                    <div class="order-now-final">
+                        <button>Thanh toán</button>
+                    </div>
+
+                    <div class="form-payment">
+                        <span>Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </div>
 
+
 <script src="/javascripts/cart.js"></script>
-<script src="/javascripts/home.js"></script>
 
 
-{{!-- Đây là phần mới thêm --}}
-
-{{!-- Kết thúc phần mới thêm --}}

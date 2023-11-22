@@ -6,20 +6,12 @@ const mongoose  = require('mongoose')
 class CartController {
     //[GET] /cart/:id
     async getCart(req, res, next) {
-        var productsResult = []
-        const cart = await cartModel.findOne({userId : req.params.id})
-        if(cart) {
-            cart?.products.forEach(async (item) => {
-                const product = await productModel.findOne({ _id : item.productId })
-                if(product) {
-                    productsResult.push({
-                        ...product,
-                        quantity : item.quantity,
-                    })
-                }
-            })
+        const userId = req.params.id
+        const cart = await cartModel.findOne({ userId }).populate('products.productId', 'name price images')
+        if(!cart) {
+            return res.status(404).json({"Message": "Không tồn tại giỏ hàng"})
         }
-        res.render('cart', { products: mongooseToObjectAll(productsResult) })
+        res.render('cart', { products: mongooseToObjectAll(cart.products) })
     }
 
     //[POST] /cart/add-product
@@ -99,7 +91,7 @@ class CartController {
 
     //[POST] /cart/decrease-quantity 
     async decreaseQuantity(req, res, next) {
-        
+
     }
 }
 

@@ -1,4 +1,3 @@
-// window.addEventListener("DOMContentLoaded", () => {
 var currentStep = 1;
 var infoCustomer = {
   name: "",
@@ -8,30 +7,33 @@ var infoCustomer = {
   ward: "",
   home: "",
 };
+var totalPrice = 0;
 
 const headerCartSteps = document.querySelectorAll(".header-cart__step");
 const orderButtonElement = document.querySelector(".order-now");
 const orderButtonElementFinal = document.querySelector(".order-now-final");
 const forms = document.querySelectorAll("section");
 const totalContainerElement = document.querySelector(".section-info-total");
+const products = document.querySelectorAll('.product-cart-item')
+const totalPriceElements = document.querySelectorAll('.total-price-value')
 
 const nameCustomer = document.querySelector("#name-customer");
 const phoneCustomer = document.querySelector("#phone-customer");
 const provincesCustomer = document.querySelector("#provinces");
 const districtCustomer = document.querySelector("#district");
 const wardCustomer = document.querySelector("#wards");
-const adressHome = document.querySelector("#adress-home");
+const addressHome = document.querySelector("#adress-home");
 
 const orderMore = document.querySelector(".breadcrumb-cart--link-product");
 const backStep = document.querySelector(".back");
 const backStepIcon = document.querySelectorAll(".header-cart__step--icon");
 const orderNow = document.querySelector(".order-now");
 const orderNowFinal = document.querySelector(".order-now-final");
+const productPriceTags = document.querySelectorAll(".product-price");
 
 const updateInfo = document.querySelectorAll(".innerText-box");
 const updateFinalInfo = document.querySelectorAll(".final-info");
 
-//Hàm cập nhật trạng thái của các step ở phần header
 const updateProgress = () => {
   headerCartSteps.forEach((step, index) => {
     if (index + 1 <= currentStep && index != 0) {
@@ -56,7 +58,14 @@ const updateProductElement = () => {
   });
 };
 
-function nextStep() {}
+const updateTotalPrice = () => {
+    totalPrice = 0
+    products.forEach(product => {
+        const quantity = Number(product.querySelector('.product-quantity').innerText)
+        totalPrice += Number(product.dataset.price)*quantity
+    })
+    totalPriceElements.forEach(priceTag => priceTag.innerText = `${formatCurrency(totalPrice).toString()} đ` )
+}
 
 function updateStep() {
   if (currentStep === 2 || currentStep === 3) {
@@ -109,7 +118,15 @@ const handleBackStepIcon = () => {
   });
 };
 
-handleBackStepIcon();
+const formatCurrency = (value) => {
+  return new Intl.NumberFormat("en-DE").format(value);
+};
+
+const handleFormatPrice = () => {
+  productPriceTags.forEach(priceTag => {
+      priceTag.innerText = formatCurrency(Number(priceTag.innerText)).toString() + ' đ'
+  })
+};
 
 const handleMoveNextStep = () => {
   if (currentStep === 4) {
@@ -124,7 +141,7 @@ const handleMoveNextStep = () => {
       provincesCustomer,
       districtCustomer,
       wardCustomer,
-      adressHome,
+      addressHome,
     ]);
     let isLength = checkLengthPhone(phoneCustomer);
     if (isEmpty) {
@@ -161,7 +178,6 @@ orderButtonElementFinal.onclick = handleMoveNextStep;
 backStep.onclick = handleBackStep;
 
 function updateUserInfo() {
-  // get value from input
   infoCustomer.name = nameCustomer.value;
   infoCustomer.phoneNumber = phoneCustomer.value;
   // let getProvince = provinceCustomer.value;
@@ -180,16 +196,16 @@ function updateUserInfo() {
       infoCustomer.ward = option.innerText;
     }
   });
-  infoCustomer.home = adressHome.value;
+  infoCustomer.home = addressHome.value;
 }
-var adressCustomer = {
+
+var addressCustomer = {
   nameCus: "",
   phoneCus: "",
   adressCus: "",
 };
-
 function updateInfoCustomerPayment() {
-  adressCustomer.adressCus =
+  addressCustomer.adressCus =
     infoCustomer.home +
     "," +
     infoCustomer.ward +
@@ -197,23 +213,23 @@ function updateInfoCustomerPayment() {
     infoCustomer.district +
     "," +
     infoCustomer.province;
-  adressCustomer.nameCus = infoCustomer.name;
-  adressCustomer.phoneCus = infoCustomer.phoneNumber;
+  addressCustomer.nameCus = infoCustomer.name;
+  addressCustomer.phoneCus = infoCustomer.phoneNumber;
   updateInfo.forEach((input, index) => {
     if (index === 0) {
-      input.innerText = adressCustomer.nameCus;
+      input.innerText = addressCustomer.nameCus;
     }
     if (index === 1) {
-      input.innerText = adressCustomer.phoneCus;
+      input.innerText = addressCustomer.phoneCus;
     }
     if (index === 2) {
-      input.innerText = adressCustomer.adressCus;
+      input.innerText = addressCustomer.adressCus;
     }
   });
 }
 
 function updateInfoCustomerPaymentFinal() {
-  adressCustomer.adressCus =
+  addressCustomer.adressCus =
     infoCustomer.home +
     "," +
     infoCustomer.ward +
@@ -221,23 +237,22 @@ function updateInfoCustomerPaymentFinal() {
     infoCustomer.district +
     "," +
     infoCustomer.province;
-  adressCustomer.nameCus = infoCustomer.name;
-  adressCustomer.phoneCus = infoCustomer.phoneNumber;
+  addressCustomer.nameCus = infoCustomer.name;
+  addressCustomer.phoneCus = infoCustomer.phoneNumber;
   updateFinalInfo.forEach((input, index) => {
     if (index === 0) {
-      input.innerText = adressCustomer.nameCus;
+      input.innerText = addressCustomer.nameCus;
     }
     if (index === 1) {
-      input.innerText = adressCustomer.phoneCus;
+      input.innerText = addressCustomer.phoneCus;
     }
     if (index === 2) {
-      input.innerText = adressCustomer.adressCus;
+      input.innerText = addressCustomer.adressCus;
     }
   });
 }
 
 // Validate form
-
 function showError(input) {
   let parent = input.parentElement;
   parent.classList.add("error");
@@ -366,4 +381,9 @@ function getDistricts() {
   var event = window.event || event;
   fetchWards(event.target.value);
 }
-// END SELECT Tỉnh Thành Phố
+
+//invoke functions
+handleBackStepIcon();
+updateProductElement();
+handleFormatPrice();
+updateTotalPrice();

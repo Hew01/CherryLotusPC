@@ -140,7 +140,7 @@
   border-radius: 0 4px 4px 0;
 }
 
-/* Lúc chưa có sản phẩm */
+/* No product section CSS */
 .no-product {
   text-align: center;
   padding: 24px;
@@ -194,19 +194,36 @@
 }
 
 .product-cart.active {
+  display: block;
+}
+
+.product-cart-item {
   display: flex;
+  padding: 8px;
+  gap: 20px;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  justify-content: space-between;
 }
 
-.product-cart .product-cart__left {
-  width: 90px;
-  text-align: center;
+.product-cart-item:hover {
+  background-color: rgba(0,0,0,0.05);
+  transition: all ease-in 0.2s;
 }
 
-.product-cart .product-cart__left--img {
-  width: 90px;
-  height: 90px;
+.product-cart-item + .product-cart-item {
+  margin-top: 20px;
+}
+
+.product-cart__left--img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
   border: 1px solid #ececec;
 }
+
 .product-cart .img-product-one {
   width: 100%;
 }
@@ -216,10 +233,23 @@
   color: #6d6e72;
 }
 
-.product-cart .delete-product .fa-solid {
-  font-size: 12px;
-  font-weight: 100;
+ .delete-product {
+  font-size: 1.4rem;
+  width: 100%;
+  justify-content: center;
+  color: #c3c3c3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  cursor: pointer;
   margin-right: 8px;
+}
+
+.delete-product:hover {
+  opacity: 0.8;
+  transition: all ease 0.2s;
+  color: red;
 }
 
 .product-cart .product-cart__center {
@@ -228,15 +258,18 @@
   margin-bottom: 8px;
   padding-right: 20px;
 }
-.product-cart .product-cart__center .product-cart__center--desc {
-  text-decoration: none;
+
+.product-cart__center--desc {
   color: #333333;
+  max-width: 300px;
+  text-align: left;
   font-size: 16px;
   font-weight: 600;
 }
 
-.product-cart .product-cart__right {
+.product-cart__right {
   text-align: center;
+  flex: 1;
 }
 
 .product-cart .product-cart__right .product-price {
@@ -250,7 +283,14 @@
 .product-cart .product-cart__right .amount-product {
   display: flex;
   align-items: center;
+  margin-top: 16px;
+  justify-content: flex-end;
 }
+
+.product-cart .product-cart__right .amount-product button {
+    cursor: pointer;
+}
+
 .product-cart .product-cart__right .minus-plus {
   display: inline-flex;
   align-items: center;
@@ -263,18 +303,18 @@
   border: 1px solid #cfcfcf;
 }
 
-.product-cart .product-cart__right .mid-minus-plus {
-  background: #fff;
+.product-cart .product-cart__right .product-quantity {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.6rem;
   height: 32px;
   width: 50px;
-  padding: 0;
-  text-align: center;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #cfcfcf;
   border-left: none;
   border-right: none;
-  border-radius: 0;
 }
 
 .product-cart .product-cart__right .mid-minus-plus:focus {
@@ -288,17 +328,20 @@
   border-radius: 4px 0 0 4px;
 }
 
-/* Tổng tiền */
+.product-cart-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .section-info-product .section-info-total {
   padding: 24px;
-  /* display: none; */
 }
 
 .section-info-product .section-info-total .info-shipping {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   padding-top: 30px;
-  /* display: none; */
 }
 
 .section-info-product .section-info-total .shipping-fee,
@@ -321,12 +364,11 @@
   margin-bottom: 24px;
 }
 
-.section-info-product .section-info-total .total-price .price-one-product {
+.section-info-product .section-info-total .total-price .total-price-value {
   color: #e30019;
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
-/* Đặt hàng ngay */
 .section-info-product .section-info-total .order-now,
 .section-info-product .section-info-total .order-now-final {
   padding: 20px;
@@ -474,15 +516,12 @@ section.active {
   color: #535353;
 }
 
-/* Giao hàng tận nơi */
-
 .address .checkbox-item {
   margin-top: 8px;
   margin-bottom: 16px;
 }
 
 /* Phần địa chỉ nhận hàng */
-
 .address .address-shipping {
   background: #ececec;
   padding: 16px;
@@ -502,6 +541,7 @@ section.active {
   height: 40px;
   position: relative;
 }
+
 .address .address-shipping .select-option.error select,
 .address .address-shipping .select-option.error input {
   width: 94%;
@@ -514,13 +554,14 @@ section.active {
   top: 0;
   z-index: 0;
 }
+
 .address
-  .address-shipping
-  .select-option
-  .address
-  .address-shipping
-  .select-option
-  select,
+.address-shipping
+.select-option
+.address
+.address-shipping
+.select-option
+select,
 .address .address-shipping .select-option input {
   width: 100%;
   height: 40px;
@@ -535,8 +576,7 @@ section.active {
   padding: 0 20px 0 16px;
   user-select: none;
   appearance: none;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
-    color 0.2s ease-in-out;
+  transition:  0.2s ease-in-out,
 }
 
 .address .address-shipping .select-option123::after {
@@ -548,11 +588,11 @@ section.active {
   margin: auto;
   width: 10px;
   height: 10px;
-  background-image: url(/img/icon/download.svg);
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .address .address-shipping .select-option4 {
   position: relative;
 }
@@ -599,7 +639,6 @@ section.active {
 }
 
 /* Xuất hóa đơn */
-
 .address .note-box .text-note {
   position: relative;
   margin-bottom: 24px;
@@ -624,6 +663,7 @@ section.active {
   transition: 0.3s;
   margin-left: 10px;
 }
+
 .address .note-box .text-note input:focus + .label-text-note,
 .address .note-box .text-note input:not(:placeholder-shown) + .label-text-note {
   transform: translate(6px, -18px);
@@ -663,7 +703,6 @@ section.active {
 }
 .section-info-order .line {
   margin-top: 16px;
-  /* justify-content: space-between; */
   position: relative;
   padding: 2px 0;
 }
@@ -689,7 +728,6 @@ section.active {
   font-weight: 600;
 }
 
-/* Đặt hàng xong*/
 .complete-order {
   text-align: center;
   padding: 24px 64px;
@@ -758,7 +796,6 @@ section.active {
 .complete-order .form-product .left {
   font-weight: 600;
   display: block;
-  /* margin-left: -10px; */
 }
 
 .complete-order .form-product .right {
@@ -791,3 +828,5 @@ section.active {
   width: 100%;
   margin-top: 20px;
 }
+
+/* Responsive for cart page */

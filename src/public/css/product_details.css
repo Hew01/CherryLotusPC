@@ -6,10 +6,6 @@
     background-color: #edf8ff;
 }
 
-::before {
-    box-sizing: border-box;
-}
-
 .detail__breadcrumb {
     font-size: 1.6rem;
     font-weight: 500;
@@ -276,10 +272,6 @@
     margin-top: 3px;
 }
 
-.inner .product-info .product-promo-box .box-content ul li > div{
-    width: calc(100% = 28px);
-}
-
 .pro-desc{
     text-overflow: ellipsis;
 }
@@ -294,22 +286,6 @@
     user-select: none;
 }
 
-#Show{
-    display: none;
-}
-
-#Show:checked ~ .content-more {
-    display: block;
-}
-
-#Show:checked ~ .Show-more-info{
-    display: none;
-}
-
-.content-more{
-    display: none;
-}
-
 label {
     font-size: 1.4rem;
     display: inline-block;
@@ -319,10 +295,6 @@ label {
     margin-top: 12px;
     color: #4fa4fb;
     font-weight: bolder;
-}
-
-.Show-more-info{
-    text-align: center;
 }
 
 .desc-content {
@@ -338,4 +310,7 @@ label {
     min-height: 100px;
     transition: all ease-in-out 0.4s;
 }
+
+/* Responsive for product-detail page */
+
 
