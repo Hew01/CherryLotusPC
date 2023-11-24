@@ -21,9 +21,7 @@ const userSchema = new Schema({
             district : String,
             province :  String        
         },       
-    ] , 
-    orders : [], // các đơn hàng của user
-    vieweds : [], // sản phẩm đã xem gần đây
+    ],
 })
 
 module.exports = mongoose.model('users', userSchema)

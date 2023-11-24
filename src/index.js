@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const handlebars = require('express-handlebars')
 const { connectDatabase } = require('./app/config/database')
 const route = require('./routes')
+const handlebarsHelpers = require('./app/config/helpers')
 
 const app = express()
 
@@ -27,7 +28,7 @@ app.use(connectLivereload())
 app.use(morgan('combined'))
 
 // set up template engine with handlebars
-app.engine('.hbs', handlebars.engine({ extname : '.hbs' }))
+app.engine('.hbs', handlebars.engine({ extname : '.hbs', helpers: handlebarsHelpers }))
 app.set('view engine', '.hbs')
 app.set('views', './src/views')
 

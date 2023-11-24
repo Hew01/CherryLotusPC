@@ -688,7 +688,7 @@
   }
 
   .header__cart {
-    background-color: #be1529;
+    background-color: #3b5998;
     padding: 8px;
     border-radius: 8px;
   }
@@ -699,11 +699,20 @@
     display: none;
   }
 
-  .header__actions-list {
+  .header__action-item {
     display: none;
+  }
+
+  .header__cart {
+    display: block;
   }
 
   .footer__contact {
     justify-content: flex-start;
   }
+
+  .header__account-btn {
+    display: none;
+  }
+
 }

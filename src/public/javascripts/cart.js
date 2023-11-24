@@ -7,9 +7,17 @@ var infoCustomer = {
   ward: "",
   home: "",
 };
+
+var addressCustomer = {
+  nameCus: "",
+  phoneCus: "",
+  adressCus: "",
+}
+
 var totalPrice = 0;
 
 const headerCartSteps = document.querySelectorAll(".header-cart__step");
+const headerCartBadge = document.querySelector('.header__cart-badge')
 const orderButtonElement = document.querySelector(".order-now");
 const orderButtonElementFinal = document.querySelector(".order-now-final");
 const forms = document.querySelectorAll("section");
@@ -33,6 +41,10 @@ const productPriceTags = document.querySelectorAll(".product-price");
 
 const updateInfo = document.querySelectorAll(".innerText-box");
 const updateFinalInfo = document.querySelectorAll(".final-info");
+const increaseQuantityBtnElements = document.querySelectorAll('.plus')
+const decreaseQuantityBtnElements = document.querySelectorAll('.minus')
+const deleteProductBtnElements = document.querySelectorAll('.delete-product')
+const cartItems = document.querySelectorAll('.product-cart-item')
 
 const updateProgress = () => {
   headerCartSteps.forEach((step, index) => {
@@ -106,7 +118,7 @@ const handleBackStep = () => {
 
 const handleBackStepIcon = () => {
   backStepIcon.forEach((step, index) => {
-    if (index < backStepIcon.length - 2) {
+    if (index < backStepIcon.length - 2 && currentStep !== 4) {
       step.onclick = function () {
         currentStep = index + 1;
         updateProgress();
@@ -132,8 +144,7 @@ const handleMoveNextStep = () => {
   if (currentStep === 4) {
     return;
   }
-  if (currentStep === 1) {
-  }
+
   if (currentStep === 2) {
     let isEmpty = checkEmptyInvalid([
       phoneCustomer,
@@ -150,27 +161,31 @@ const handleMoveNextStep = () => {
       if (isLength) {
         return;
       }
-      updateProgress();
-      updateProductElement();
       updateUserInfo();
       updateInfoCustomerPayment();
     }
   }
+
   if (currentStep === 3) {
-    updateProgress();
-    updateProductElement();
-    updateInfoCustomerPaymentFinal();
+    const userId = JSON.parse(localStorage.getItem('currentUser'))._id
+    fetch('http://localhost:3000/order/place-order', {
+       method: 'POST',
+       body: JSON.stringify({ userId, name : infoCustomer.name, totalPrice, address : `${infoCustomer.home},${infoCustomer.ward},${infoCustomer.district},${infoCustomer.province}`, phoneNumber : infoCustomer.phoneNumber})
+    })
+    .then(res => {
+        console.log(res)
+        headerCartBadge.innerText = 0
+        updateInfoCustomerPaymentFinal();
+    })
+    .catch(err => console.log(err))
   }
+
   currentStep++;
   updateProgress();
   updateProductElement();
   updateStep();
   updateOrderNow();
 };
-
-updateProgress();
-updateStep();
-updateOrderNow();
 
 // set events
 orderButtonElement.onclick = handleMoveNextStep;
@@ -180,7 +195,6 @@ backStep.onclick = handleBackStep;
 function updateUserInfo() {
   infoCustomer.name = nameCustomer.value;
   infoCustomer.phoneNumber = phoneCustomer.value;
-  // let getProvince = provinceCustomer.value;
   provincesCustomer.querySelectorAll("option").forEach((option) => {
     if (option.selected) {
       infoCustomer.province = option.innerText;
@@ -199,11 +213,6 @@ function updateUserInfo() {
   infoCustomer.home = addressHome.value;
 }
 
-var addressCustomer = {
-  nameCus: "",
-  phoneCus: "",
-  adressCus: "",
-};
 function updateInfoCustomerPayment() {
   addressCustomer.adressCus =
     infoCustomer.home +
@@ -213,19 +222,19 @@ function updateInfoCustomerPayment() {
     infoCustomer.district +
     "," +
     infoCustomer.province;
-  addressCustomer.nameCus = infoCustomer.name;
-  addressCustomer.phoneCus = infoCustomer.phoneNumber;
-  updateInfo.forEach((input, index) => {
-    if (index === 0) {
-      input.innerText = addressCustomer.nameCus;
-    }
-    if (index === 1) {
-      input.innerText = addressCustomer.phoneCus;
-    }
-    if (index === 2) {
-      input.innerText = addressCustomer.adressCus;
-    }
-  });
+    addressCustomer.nameCus = infoCustomer.name;
+    addressCustomer.phoneCus = infoCustomer.phoneNumber;
+    updateInfo.forEach((input, index) => {
+      if (index === 0) {
+        input.innerText = addressCustomer.nameCus;
+      }
+      if (index === 1) {
+        input.innerText = addressCustomer.phoneCus;
+      }
+      if (index === 2) {
+        input.innerText = addressCustomer.adressCus;
+      }
+    });
 }
 
 function updateInfoCustomerPaymentFinal() {
@@ -293,6 +302,13 @@ function checkEmptyInvalid(listInput) {
     }
   });
   return isEmptyError;
+}
+
+const updateMinusButton = () => {
+  decreaseQuantityBtnElements.forEach(btn => {
+    const quantity = Number(btn.parentElement.querySelector('.product-quantity').innerText)
+    btn.classList.toggle('disabled', quantity === 1)
+  })
 }
 
 // Start Select Tỉnh, TP
@@ -365,8 +381,7 @@ function fetchWards(districtsID) {
       console.error("Lỗi khi gọi api", error);
     });
 }
-// Đang sử dụng biến toàn cục window.event nên không thể set onchange với tham số event
-//  =>> Loại bỏ biến event
+
 function getProvinces() {
   // Biến kiểm tra
   var event = window.event || event;
@@ -377,13 +392,91 @@ function getProvinces() {
 }
 
 function getDistricts() {
-  // fetchWards(event.target.value);
   var event = window.event || event;
   fetchWards(event.target.value);
 }
 
+// set events
+increaseQuantityBtnElements.forEach(btn => {
+  btn.onclick = function(event) {
+      event.stopPropagation()
+      const productQuantityTagElement = this.parentElement.querySelector('.product-quantity')
+
+      let newQuantity = Number(productQuantityTagElement.innerText) + 1
+      
+      productQuantityTagElement.innerText = newQuantity
+      updateTotalPrice()
+      
+      const userId = JSON.parse(localStorage.getItem('currentUser'))._id
+      const productId = event.target.closest('.product-cart-item').dataset.id
+      fetch('http://localhost:3000/cart/increase-quantity', {
+        method: "POST",
+        body : JSON.stringify({ userId, productId })
+      })
+      .then(response => {
+        console.log(response)
+        window.location.reload()
+      })
+      .catch(err => console.log(err))
+    }
+
+})
+
+decreaseQuantityBtnElements.forEach(btn => {
+  btn.onclick = function(event) {
+    event.stopPropagation()
+    const productQuantityTagElement = this.parentElement.querySelector('.product-quantity')
+    const newQuantity = Number(productQuantityTagElement.innerText) - 1
+    if(newQuantity === 1)
+      updateMinusButton()
+   
+    productQuantityTagElement.innerText = newQuantity
+    updateTotalPrice()
+    
+    const userId = JSON.parse(localStorage.getItem('currentUser'))._id
+    const productId = event.target.closest('.product-cart-item').dataset.id
+    fetch('http://localhost:3000/cart/decrease-quantity', {
+      method: "POST",
+      body : JSON.stringify({ userId, productId })
+    })
+    .then(response => {
+      console.log(response)
+      window.location.reload()
+    })
+    .catch(err => console.log(err))
+    
+  }
+})
+
+deleteProductBtnElements.forEach(btn => {
+  btn.onclick = function(event) {
+    event.stopPropagation()
+    const userId = JSON.parse(localStorage.getItem('currentUser'))._id
+    const productId = event.target.closest('.product-cart-item').dataset.id
+    fetch('http://localhost:3000/cart/delete-product', {
+        method : "POST",
+        body: JSON.stringify({ userId, productId })
+    })
+    .then(res =>{
+      console.log(res)
+      window.location.reload()
+    })
+    .catch(err => console.log(err))
+  }
+})
+
+cartItems.forEach(item => {
+  item.onclick = function(event) {
+        window.location.href = `http://localhost:3000/products/details/${this.dataset.id}`
+  }
+})
+
 //invoke functions
+updateProgress();
+updateStep();
+updateOrderNow();
 handleBackStepIcon();
 updateProductElement();
 handleFormatPrice();
 updateTotalPrice();
+updateMinusButton();

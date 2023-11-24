@@ -144,7 +144,6 @@
 .no-product {
   text-align: center;
   padding: 24px;
-  display: none;
 }
 
 .no-product .no-product__img {
@@ -301,6 +300,16 @@
   padding: 0;
   text-align: center;
   border: 1px solid #cfcfcf;
+}
+
+.minus.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  filter: brightness(0.9);
+}
+
+.minus.btn.disabled:active {
+  transform: scale(1);
 }
 
 .product-cart .product-cart__right .product-quantity {

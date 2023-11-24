@@ -80,8 +80,8 @@ class CartController {
                         product.quantity+=1
                 })
                 await cart.save()
+                return res.status(200).json({"message" : "increase quantity successfully"})
             }
-            res.redirect(`/cart/${userId}`)
        }
        catch(err) {
             console.log(err)
@@ -91,7 +91,39 @@ class CartController {
 
     //[POST] /cart/decrease-quantity 
     async decreaseQuantity(req, res, next) {
+        try {
+            const { userId, productId } = req.body
+            const cart = await cartModel.findOne({ userId })
+            if(cart) {
+                cart.products.forEach(product => {
+                    if(product.productId.equals(productId.toString()))
+                        product.quantity-=1
+                })
+                await cart.save()
+                return res.status(200).json({ "message" : "decrease quantity successfully" })
+            }
+       }
+       catch(err) {
+            console.log(err)
+            next(err)
+       }
+    }
 
+    //[POST] /cart/delete-product 
+    async destroy(req, res, next) {
+        try {
+            const { productId, userId } = req.body
+            const cart = await cartModel.findOne({ userId })
+            if(cart) {
+                cart.products = cart.products.filter(product => !product.productId.equals(productId.toString()))
+                await cart.save()
+                return res.status(200).json("delete product success")
+            }
+        }
+        catch(err) {
+            console.log(err)
+            next(err)
+        }
     }
 }
 
