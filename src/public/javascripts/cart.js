@@ -22,8 +22,8 @@ const orderButtonElement = document.querySelector(".order-now");
 const orderButtonElementFinal = document.querySelector(".order-now-final");
 const forms = document.querySelectorAll("section");
 const totalContainerElement = document.querySelector(".section-info-total");
-const products = document.querySelectorAll('.product-cart-item')
-const totalPriceElements = document.querySelectorAll('.total-price-value')
+const products = document.querySelectorAll(".product-cart-item");
+const totalPriceElements = document.querySelectorAll(".total-price-value");
 
 const nameCustomer = document.querySelector("#name-customer");
 const phoneCustomer = document.querySelector("#phone-customer");
@@ -71,13 +71,18 @@ const updateProductElement = () => {
 };
 
 const updateTotalPrice = () => {
-    totalPrice = 0
-    products.forEach(product => {
-        const quantity = Number(product.querySelector('.product-quantity').innerText)
-        totalPrice += Number(product.dataset.price)*quantity
-    })
-    totalPriceElements.forEach(priceTag => priceTag.innerText = `${formatCurrency(totalPrice).toString()} đ` )
-}
+  totalPrice = 0;
+  products.forEach((product) => {
+    const quantity = Number(
+      product.querySelector(".product-quantity").innerText
+    );
+    totalPrice += Number(product.dataset.price) * quantity;
+  });
+  totalPriceElements.forEach(
+    (priceTag) =>
+      (priceTag.innerText = `${formatCurrency(totalPrice).toString()} đ`)
+  );
+};
 
 function updateStep() {
   if (currentStep === 2 || currentStep === 3) {
@@ -135,9 +140,10 @@ const formatCurrency = (value) => {
 };
 
 const handleFormatPrice = () => {
-  productPriceTags.forEach(priceTag => {
-      priceTag.innerText = formatCurrency(Number(priceTag.innerText)).toString() + ' đ'
-  })
+  productPriceTags.forEach((priceTag) => {
+    priceTag.innerText =
+      formatCurrency(Number(priceTag.innerText)).toString() + " đ";
+  });
 };
 
 const handleMoveNextStep = () => {
@@ -480,3 +486,4 @@ updateProductElement();
 handleFormatPrice();
 updateTotalPrice();
 updateMinusButton();
+

@@ -72,27 +72,27 @@
   border: 1px solid black;
 }
 
-.header-cart .header-cart__step .icon2::before,
-.header-cart .header-cart__step .icon3::before,
-.header-cart .header-cart__step .icon4::before {
+.header-cart .step2::before,
+.header-cart .step3::before,
+.header-cart .step4::before {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
-  right: 28px;
-  z-index: -10;
-  width: 460%;
+  top: 40%;
+  right: 59%;
+  z-index: 0;
+  width: 81%;
   border-top: 1px dashed #000;
 }
 
-.header-cart__step.active .header-cart__step--icon::before {
+.header-cart__step.active::before {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
-  z-index: -2;
-  right: 28px;
-  width: 460%;
+  top: 40%;
+  z-index: 0;
+  right: 59%;
+  width: 81%;
   border-top: 1px solid var(--primary-color);
 }
 
@@ -207,7 +207,7 @@
 }
 
 .product-cart-item:hover {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   transition: all ease-in 0.2s;
 }
 
@@ -232,7 +232,7 @@
   color: #6d6e72;
 }
 
- .delete-product {
+.delete-product {
   font-size: 1.4rem;
   width: 100%;
   justify-content: center;
@@ -287,7 +287,7 @@
 }
 
 .product-cart .product-cart__right .amount-product button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .product-cart .product-cart__right .minus-plus {
@@ -473,10 +473,10 @@ section.active {
 .info-customer .label-text {
   padding: 0 4px;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 12px;
   color: #535353;
-  font-size: 16px;
+  font-size: 14px;
   pointer-events: none;
   transition: 0.3s;
   margin-left: 10px;
@@ -565,12 +565,12 @@ section.active {
 }
 
 .address
-.address-shipping
-.select-option
-.address
-.address-shipping
-.select-option
-select,
+  .address-shipping
+  .select-option
+  .address
+  .address-shipping
+  .select-option
+  select,
 .address .address-shipping .select-option input {
   width: 100%;
   height: 40px;
@@ -585,7 +585,7 @@ select,
   padding: 0 20px 0 16px;
   user-select: none;
   appearance: none;
-  transition:  0.2s ease-in-out,
+  transition: 0.2s ease-in-out;
 }
 
 .address .address-shipping .select-option123::after {
@@ -609,10 +609,10 @@ select,
 .address .address-shipping .select-option4 .label-text-address {
   padding: 0 4px;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 12px;
   color: #535353;
-  font-size: 16px;
+  font-size: 14px;
   pointer-events: none;
   transition: 0.3s;
   margin-left: 10px;
@@ -624,7 +624,7 @@ select,
   .select-option4
   input:not(:placeholder-shown)
   + .label-text-address {
-  transform: translate(6px, -17px);
+  transform: translate(6px, -18px);
   font-size: 12px;
   color: #535353;
   background: linear-gradient(-180deg, #ececec 55%, #fff 0) !important;
@@ -664,10 +664,10 @@ select,
 .address .note-box .text-note .label-text-note {
   padding: 0 4px;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 12px;
   color: #535353;
-  font-size: 16px;
+  font-size: 14px;
   pointer-events: none;
   transition: 0.3s;
   margin-left: 10px;
@@ -675,7 +675,7 @@ select,
 
 .address .note-box .text-note input:focus + .label-text-note,
 .address .note-box .text-note input:not(:placeholder-shown) + .label-text-note {
-  transform: translate(6px, -18px);
+  transform: translate(6px, -19px);
   font-size: 12px;
   color: #535353;
   background: #fff;
@@ -839,3 +839,136 @@ select,
 }
 
 /* Responsive for cart page */
+/* Mobile và Tablet: width < 1024px*/
+@media screen and (max-width: 63.9375em) {
+  .info-customer .input-customer {
+    flex-direction: column;
+  }
+
+  .info-customer .input-name {
+    padding: 0;
+    margin-bottom: 14px;
+  }
+
+  .info-customer .input-phone {
+    padding: 0;
+  }
+
+  .info-customer .text-box input:focus + .label-text,
+  .info-customer .text-box input:not(:placeholder-shown) + .label-text {
+    transform: translate(6px, -18px);
+    font-size: 12px;
+    color: #535353;
+    background: #fff;
+  }
+
+  .info-customer
+    .text-box
+    input:not(:focus):not(:placeholder-shown)
+    + .label-text {
+    transform: translate(6px, -18px);
+    font-size: 12px;
+    color: #535353;
+  }
+
+  .address .address-shipping .select-box {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .address .address-shipping .select-option1,
+  .address .address-shipping .select-option3 {
+    margin-bottom: 16px;
+  }
+
+  .address .note-box .text-note input:focus + .label-text-note,
+  .address
+    .note-box
+    .text-note
+    input:not(:placeholder-shown)
+    + .label-text-note {
+    transform: translate(6px, -18px);
+    font-size: 12px;
+    color: #535353;
+    background: #fff;
+  }
+
+  .address
+    .note-box
+    .text-note
+    input:not(:focus):not(:placeholder-shown)
+    + .label-text-note {
+    transform: translate(-4px, -30px);
+    font-size: 12px;
+    color: #535353;
+  }
+  .header-cart__step span {
+    font-size: 10px;
+  }
+  .section-info-order h2 {
+    font-size: 18px;
+  }
+  .section-info-order .line span,
+  .section-info-order .line p {
+    font-size: 14px;
+  }
+}
+
+/* Mobile: Width < 740px */
+@media screen and (max-width: 46.1875em) {
+  .cart-main {
+    width: 96%;
+    margin: auto;
+  }
+
+  .form-payment {
+    display: none;
+  }
+
+  .product-cart__left--img img {
+    height: 68px;
+    width: 100%;
+  }
+
+  .delete-product {
+    font-size: 1.2rem;
+  }
+
+  .product-cart-info {
+    flex-wrap: wrap;
+  }
+
+  .product-cart-info h3 {
+    font-size: 14px;
+  }
+
+  .product-cart-info .product-price {
+    font-size: 14px;
+    display: block;
+    text-align: right;
+    width: 100%;
+  }
+
+  .product-cart .product-cart__right .minus-plus,
+  .product-cart .product-cart__right .plus {
+    height: 26px;
+    width: 26px;
+  }
+
+  .product-cart .product-cart__right .product-quantity {
+    width: 40px;
+    height: 26px;
+  }
+
+  .product-cart .product-cart__right .product-price {
+    font-size: 14px;
+  }
+
+  .product-cart .product-cart__right .amount-product {
+    margin-top: 6px;
+  }
+}
+
+/* Tablet: WWidth >= 740 and width < 1024px */
+@media screen and (min-width: 45.25em) and (max-width: 63.9375em) {
+}
