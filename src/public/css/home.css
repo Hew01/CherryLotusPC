@@ -350,6 +350,7 @@
 /* Footer CSS */
 #footer {
   min-height: 300px;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -358,6 +359,7 @@
 }
 
 .footer__info {
+  flex-wrap: wrap;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -378,6 +380,7 @@
 .footer__info-item {
   width: 100%;
   padding: 8px 0;
+  align-items: flex-start;
 }
 
 .footer__info-item span {
@@ -388,7 +391,6 @@
 
 .footer__info-item:has(span) {
   display: flex;
-  justify-content: space-between;
 }
 
 .footer__info-link {
@@ -692,9 +694,26 @@
     padding: 8px;
     border-radius: 8px;
   }
+
+  #footer h4{
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  #footer a{
+    font-size: 1.2rem;
+  }
+  .footer__info {
+   
+    padding:0 20px;
+  }
+  .footer__info-section{
+    flex: 1;
+    margin-right: 20px;
+  }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
   .header__navigation {
     display: none;
   }
@@ -715,4 +734,22 @@
     display: none;
   }
 
+}
+
+@media screen and (max-width: 760px) {
+  .footer__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+  }
+  .footer_info-section--delivery {
+    display: none;
+  }
+  .footer_info-section--payments{
+    display: none;
+  }
+  .footer__contact{
+    display: none;
+  }
 }
