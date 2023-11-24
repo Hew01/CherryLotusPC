@@ -713,6 +713,7 @@
   }
 }
 
+
 @media screen and (max-width: 1024px) {
   .header__navigation {
     display: none;
@@ -743,12 +744,15 @@
     width: 100%;
     flex-direction: column;
   }
+
   .footer_info-section--delivery {
     display: none;
   }
+
   .footer_info-section--payments{
     display: none;
   }
+
   .footer__contact{
     display: none;
   }

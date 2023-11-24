@@ -2,10 +2,6 @@
     padding: 36px 0;
 }
 
-#detail-product .inner {
-    background-color: #edf8ff;
-}
-
 .detail__breadcrumb {
     font-size: 1.6rem;
     font-weight: 500;
