@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const headerLogoutBtnElement = $(".header__logout-btn");
   const headerCartLinkElement = $(".header__cart a");
   const headerCartBadge = $('.header__cart-badge')
+  const gotoTopBtnElement = document.querySelector('.go-to-top-btn')
 
   // function check valid email
   const isValidEmail = (email) => {
@@ -114,6 +115,21 @@ window.addEventListener('DOMContentLoaded', () => {
       loginFormElement.classList.add("active");
     };
   });
+
+  gotoTopBtnElement.onclick = function() {
+      window.scrollTo(0,0)
+      this.style.display = 'none'
+  }
+
+  window.onscroll = function(event) {
+      if(window.scrollY >= 100)
+      {
+          gotoTopBtnElement.style.display = 'flex'
+      }        
+      else {
+          gotoTopBtnElement.style.display = 'none'
+      }
+  }
 
   // ẩn thông báo lỗi cho các thẻ input(nếu có)
   formInputs.forEach((input) => {

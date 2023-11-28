@@ -48,7 +48,7 @@ const cartItems = document.querySelectorAll('.product-cart-item')
 
 const updateProgress = () => {
   headerCartSteps.forEach((step, index) => {
-    if (index + 1 <= currentStep && index != 0) {
+    if (index + 1 <= currentStep && index !== 0) {
       step.classList.add("active");
     } else {
       step.classList.remove("active");

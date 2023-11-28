@@ -436,6 +436,11 @@ section.active {
 /* Thông tin khách hàng đặt hàng */
 .info-customer {
   padding: 24px 24px 30px 24px;
+  display: none;
+}
+
+.info-customer.active {
+  display: block;
 }
 
 .info-customer .title-text {
