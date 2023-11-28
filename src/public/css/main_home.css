@@ -87,7 +87,7 @@ section {
     flex: 5;
     overflow: hidden;
     border-radius: 6px;
-    max-height: 500px;
+    max-height: fit-content;
     position: relative;
 }
 
@@ -99,6 +99,10 @@ section {
     border-radius: 10px;
     object-fit: contain;
     object-position: center;
+}
+
+.home__main-banner {
+    transition: all ease-in 0.1s;
 }
 
 .home__banners > div {
