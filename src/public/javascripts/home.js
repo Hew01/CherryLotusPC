@@ -18,12 +18,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const loginSubmitBtnElement = $(".form__login-btn");
   const signUpSubmitBtnElement = $(".form__signup-btn");
   const formInputs = $$(".form__input");
-  const forgotPasswordSubmitBtnElement = $(".form__forgot-password-submit-btn");
   const headerAccountBoxElement = $(".header__account-box");
   const headerAccountTextElement = $(".header__account-btn .header__text");
   const headerUsernameElement = $(".header__user-info p");
   const headerLogoutBtnElement = $(".header__logout-btn");
   const headerCartLinkElement = $(".header__cart a");
+  const headerOrderLinkElement = $('.header__order a');
+  const headerOrderOptionLinkElement = $('.header__order-option a')
   const headerCartBadge = $('.header__cart-badge')
   const gotoTopBtnElement = document.querySelector('.go-to-top-btn')
 
@@ -50,10 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
       headerAccountBoxElement.classList.remove("logined");
       headerAccountTextElement.innerText = "Đăng nhập";
       headerCartLinkElement.setAttribute("href", `#`);
+      headerOrderLinkElement.setAttribute('href', '#')
+      headerOrderOptionLinkElement.setAttribute("href", '#')
     } else {
       headerAccountBoxElement.classList.add("logined");
       headerAccountTextElement.innerText = currentUser.username;
       headerCartLinkElement.setAttribute("href", `/cart/${currentUser?._id}`);
+      headerOrderLinkElement.setAttribute('href',`/account/${currentUser?._id}`);
+      headerOrderOptionLinkElement.setAttribute('href',`/account/${currentUser?._id}`);
       headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`;
       updateCartNumber(currentUser)
     }
@@ -202,6 +207,8 @@ window.addEventListener('DOMContentLoaded', () => {
         headerAccountBoxElement.classList.add("logined");
         headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`;
         headerCartLinkElement.setAttribute("href", `/cart/${currentUser?._id}`);
+        headerOrderLinkElement.setAttribute("href", `/account/${currentUser?._id}`)
+        headerOrderOptionLinkElement.setAttribute("href", `/account/${currentUser?._id}`)
         window.alert("Đăng nhập thành công!");
         clearInputFields();
         modalElement.classList.remove("active");
@@ -279,6 +286,8 @@ window.addEventListener('DOMContentLoaded', () => {
         headerAccountTextElement.innerText = currentUser.username;
         headerAccountBoxElement.classList.add("logined");
         headerUsernameElement.innerText = `Xin chào ${currentUser.username}!`;
+        headerOrderLinkElement.setAttribute('href',`/account/${currentUser?._id}`)
+        headerOrderOptionLinkElement.setAttribute('href',`/account/${currentUser?._id}`)
         headerCartLinkElement.setAttribute("href", `/cart/${currentUser?._id}`);
         window.alert("Đăng ký tài khoản mới thành công!");
         clearInputFields();

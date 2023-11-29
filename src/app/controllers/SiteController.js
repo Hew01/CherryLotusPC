@@ -1,4 +1,6 @@
+const userModel = require('../models/user')
 const productModel = require('../models/product')
+const orderModel = require('../models/order')
 const { mongooseToObjectAll, mongooseToObject } = require('../../untils')
 
 class SiteController {
@@ -18,9 +20,30 @@ class SiteController {
         }
     }
 
-    // [GET] /account
+    // [GET] /account/:id
     async getAccountPage (req, res, next) {
-        res.render('account')
+        try {
+            const userId = req.params.id
+            let currentUser = {}
+            let userOrders = []
+            const users = await userModel.find({})
+            const orders = await orderModel.find({})
+            users.forEach(user => {
+                if(user._id.equals(userId.toString()))
+                currentUser = mongooseToObject(user)
+            })
+            orders.forEach(order => {
+                if(order.userId.equals(userId.toString())) {
+                    userOrders.push(mongooseToObject(order))
+                }
+            })
+
+            res.render('account', { user : currentUser, orders : userOrders })
+        }
+        catch(err) {
+            console.log(err)
+            next(err)
+        }
     }
 
 }

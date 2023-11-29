@@ -1,7 +1,16 @@
-.right-main > div {
-    display: none;
+#account {
+    height: 100%;
+    background-color: #edf8ff;
 }
 
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 0;
+    flex: 4;
+}
 
 #hidden {
     display: none;
@@ -11,128 +20,161 @@
     display: block;
 }
 
-.row {
-    display: flex;
-}
-
 .row .left-sidebar {
     flex: 1;
     padding-bottom: 24px;
+    background-color: #fff;
+    border-radius: 8px;
 }
 
 .left-sidebar__avatar {
     display: flex;
     align-items: center;
     padding: 20px;
-    flex-direction: row;
 }
 
 .left-sidebar__avatar .customer-name {
     font-size: 1.8rem;
     font-weight: 600;
-    padding-left: 24px;
+    margin-left: 16px;
 }
-
 
 .row .right-main {
     flex: 3;
-    margin-left: 12px;
-}
-
-.left-sidebar ul {
-    display: flex;
-    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
 }
 
 .left-sidebar .left-sidebar_list {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10%;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .left-sidebar li {
     list-style: none;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 4px 16px;
 }
 
-.left-sidebar .tab a {
+.left-sidebar .tab {
     line-height: 3;
-    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
     display: inline-block;
-    min-width: 200px;
-    text-align: left;
-    font-size: 16px;
+    color: var(--text-color);
 }
 
-.left-sidebar .tab a:hover {
-    color: red;
+.left-sidebar .tab i {
+    font-size: 1.8rem;
+    margin-right: 6px;
 }
 
-.left-sidebar .tab a:active {
-    color: red;
+.left-sidebar .tab:hover {
+    color: var(--primary-color);
 }
 
-.right-main .box-info-account {
-    padding: 20px;
+.left-sidebar .tab.active {
+    color: var(--primary-color);
+}
+
+/* Main box CSS */
+.right-main-box {
+    width: 100%;
+    display: none;
+    height: 100%;
+}
+
+.right-main-box.active {
+    display: block;
 }
 
 .right-main .box-heading h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: 600;
 
 }
 
-.right-main .box-info-account
-.nav-procedure ul {
+.right-main .box-info-account {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;    
 }
 
-.right-main .box-info-account
-.nav-procedure a {
-    list-style: none;
+.account__order-container {
+    padding: 36px 0;
+}
+
+.nav-info-item {
+    font-size: 2rem;
+    font-weight: 500;    
+    padding: 8px 16px;
+    position: relative;
     cursor: pointer;
-    font-size: 1.5em;
-    font-weight: 600;
-    padding: 10px 0;
-    border-radius: 6px;
-    min-width: 250px;
-    margin: 0 10px;
     text-transform: uppercase;
+    user-select: none;
+    color: #979698;
 }
 
-.right-main .box-info-account
-.nav-procedure a:hover {
-    color: red;
+.nav-info-item span {
+    display: none;
+    margin-left: 4px;
+    color: var(--primary-color);
 }
 
-.right-main .box-info-account
-.nav-procedure a:active {
-    color: red;
+.nav-info-item::after {
+    width: 0;
+    height: 4px;
+    background-color: var(--primary-color);
+    content: "";
+    position: absolute;
+    top: 100%;
+    border-radius: 8px;
+    left: 0;
 }
 
+.nav-info-item.active::after {
+    width: 100%;
+    transition: width 0.1s ease-in;
+}
 
-.row[type="radio"] {
-    margin-right: 5px;
+.nav-info-item.active span {
+    display: inline;
+}
+
+.account__order-container  div {
+    display: none;
+}
+
+.account__order-container  div.active {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    width: 500px;
+    margin: 0 auto;
 }
 
 .form_line-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
 }
 
-.form_line-wrapper span{
+.form_line-wrapper + .form_line-wrapper {
+    margin-top: 16px;
+}
+
+.form_line-wrapper label{
     font-size: 1.4rem;
-    padding-right: 16px;
-    min-width: 100px;        
+    min-width: 80px;        
 }
 
-.form_line-wrapper label {
-    padding-bottom: 14px;
-}
-
-.form_line-wrapper input[type=text] {
+.form_line-wrapper input {
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
@@ -141,23 +183,51 @@
     outline: none;
 }
 
-.form_line-wrapper .date {
-    padding-right:10px;
-}
-
-.date select {
+.form_line-wrapper input[type|='submit'] {
+    margin: 0 auto;
+    width: 200px;
     height: 40px;
-    min-width: 100px;
-    border: 1px solid #ccc;
-}
-
-.form_line-wrapper input[type=submit] {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #ccc;
+    border: none;
     cursor: pointer;
     border-radius: 4px;
     background-color: var(--primary-color);
     color: #fff;
     font-weight: 600;
 }
+
+.account__empty-order {
+    width: 100%;
+}
+
+/* Order table CSS */
+table {
+    width: 100%;
+    font-size: 1.6rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 8px;
+    text-align: center;
+}
+
+.order_view , .order_delete {
+    font-size: 1.4rem;
+    cursor: pointer;
+    font-weight: 400;
+    border: none;
+}
+
+.order_view {
+    text-decoration: underline;
+}
+
+.order_view:hover {
+    color: var(--primary-color);
+}
+
+.order_delete:hover {
+    color: red;
+}
+
