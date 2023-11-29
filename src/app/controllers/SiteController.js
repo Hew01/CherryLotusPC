@@ -17,6 +17,12 @@ class SiteController {
             next(err)
         }
     }
+
+    // [GET] /account
+    async getAccountPage (req, res, next) {
+        res.render('account')
+    }
+
 }
 
 module.exports = new SiteController
