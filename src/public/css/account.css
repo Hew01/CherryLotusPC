@@ -1,0 +1,163 @@
+.right-main > div {
+    display: none;
+}
+
+
+#hidden {
+    display: none;
+}
+
+#visible {
+    display: block;
+}
+
+.row {
+    display: flex;
+}
+
+.row .left-sidebar {
+    flex: 1;
+    padding-bottom: 24px;
+}
+
+.left-sidebar__avatar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: row;
+}
+
+.left-sidebar__avatar .customer-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-left: 24px;
+}
+
+
+.row .right-main {
+    flex: 3;
+    margin-left: 12px;
+}
+
+.left-sidebar ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-sidebar .left-sidebar_list {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10%;
+}
+
+.left-sidebar li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.left-sidebar .tab a {
+    line-height: 3;
+    border-radius: 6px;
+    display: inline-block;
+    min-width: 200px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.left-sidebar .tab a:hover {
+    color: red;
+}
+
+.left-sidebar .tab a:active {
+    color: red;
+}
+
+.right-main .box-info-account {
+    padding: 20px;
+}
+
+.right-main .box-heading h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+
+}
+
+.right-main .box-info-account
+.nav-procedure ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.right-main .box-info-account
+.nav-procedure a {
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 10px 0;
+    border-radius: 6px;
+    min-width: 250px;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.right-main .box-info-account
+.nav-procedure a:hover {
+    color: red;
+}
+
+.right-main .box-info-account
+.nav-procedure a:active {
+    color: red;
+}
+
+
+.row[type="radio"] {
+    margin-right: 5px;
+}
+
+.form_line-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.form_line-wrapper span{
+    font-size: 1.4rem;
+    padding-right: 16px;
+    min-width: 100px;        
+}
+
+.form_line-wrapper label {
+    padding-bottom: 14px;
+}
+
+.form_line-wrapper input[type=text] {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    outline: none;
+}
+
+.form_line-wrapper .date {
+    padding-right:10px;
+}
+
+.date select {
+    height: 40px;
+    min-width: 100px;
+    border: 1px solid #ccc;
+}
+
+.form_line-wrapper input[type=submit] {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+}
