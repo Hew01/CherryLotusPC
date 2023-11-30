@@ -231,6 +231,7 @@ section {
 
 .home__categories-item {
     display: flex;
+    border-radius: 4px;
     cursor: pointer;
     flex-direction: column;
     align-items: center;
@@ -239,6 +240,10 @@ section {
     color: var(--text-color);
     padding: 36px;
     min-width: 200px;
+}
+
+.home__categories-item:hover {
+    background-color: #edf8ff;
 }
 
 .home__categories-item img {
@@ -258,8 +263,7 @@ section {
     width: 100%;
     margin-top: 20px;
     display: flex;
-    row-gap: 10px;
-    gap: 10px;
+    row-gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -275,7 +279,7 @@ section {
     border-radius: 8px;
     min-height: 300px;
     border: 1px solid rgba(0,0,0,0.3);
-    max-width: 200px;
+    max-width: 220px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 

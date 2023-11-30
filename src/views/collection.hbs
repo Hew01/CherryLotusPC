@@ -41,11 +41,12 @@
                          <i class="fa-solid fa-arrow-down-short-wide"></i>
                         Xếp theo:
                     </span>
-                    <span class="collection__sort-condition">Giá tăng dần</span>
+                    <span class="collection__sort-condition" data-type={{type}}>
+                    </span>
                     <i class="fa-solid fa-angle-down"></i>
                     <ul class="collection__sort-box">
-                        <li>Giá tăng dần</li>
-                        <li>Giá giảm dần</li>
+                        <li class="active" data-type="asc"><a href="/pages/collection/{{products.[0].genre}}?_sort=true&type=asc">Giá tăng dần</a></li>
+                        <li data-type="desc"><a href="/pages/collection/{{products.[0].genre}}?_sort=true&type=desc">Giá giảm dần</a></li>
                     </ul>
                 </div>            
             </div>

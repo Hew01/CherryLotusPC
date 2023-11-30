@@ -1,132 +1,134 @@
 {{>navigation}}
 {{#with product}}
-<div id="detail-product" class="inner">
-    <span class="product_id" style="display: none;">{{this._id}}</span>
-    <div class="detail__breadcrumb">
-        <a href="/">
-            <i class="fa-solid fa-house"></i>
-            Trang chủ 
-        </a>
-        <span>/</span>
-        <a href="/pages/collection/{{this.genre}}" style="text-transform : capitalize">{{this.genre}}</a>
-        <span>/</span>
-        <span>{{this.name}}</span>
-    </div>
-    <div class="product-body">
-        <div class="container-fluid">
-            <div class="inner">
-                <div class="product-main">
-                 <div class="d-flex">
-                        <div class="product-gallerry">
-                            <div class="img-container">
-                                <span class="detail__slider-btn detail__slider-left-btn">
-                                    <i class="fa-solid fa-arrow-left"></i>
-                                </span>
-                                <img id="imgBox" src="#">
-                                <span class="detail__slider-btn detail__slider-right-btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </span>
-                            </div>
-                            <div class="product-small-img">
-                                <span class="detail__slider-btn detail__slider-left-btn">
-                                    <i class="fa-solid fa-arrow-left"></i>
-                                </span>
-                                <div class="product__small-image-container">
-                                    {{#each this.images}}
-                                        <img src={{this}} alt="Description image" class="detail__small-image">
-                                    {{/each}}                                                                    
+<div id="detail-product">
+   <div class="inner">
+        <span class="product_id" style="display: none;">{{this._id}}</span>
+        <div class="detail__breadcrumb">
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+                Trang chủ 
+            </a>
+            <span>/</span>
+            <a href="/pages/collection/{{this.genre}}" style="text-transform : capitalize">{{this.genre}}</a>
+            <span>/</span>
+            <span>{{this.name}}</span>
+        </div>
+        <div class="product-body">
+            <div class="container-fluid">
+                <div class="inner">
+                    <div class="product-main">
+                     <div class="d-flex">
+                            <div class="product-gallerry">
+                                <div class="img-container">
+                                    <span class="detail__slider-btn detail__slider-left-btn">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </span>
+                                    <img id="imgBox" src="#">
+                                    <span class="detail__slider-btn detail__slider-right-btn">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
                                 </div>
-                                <span class="detail__slider-btn detail__slider-right-btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="info-wrapper">
-                                <div class="info-content">
-                                    <div class="info-top">
-                                        <div class="product-name">
-                                            <h1>{{this.name}}</h1>
-                                        </div>
-    
-                                        <div class="product-rating">
-                                            <span class="number">100</span>
-                                            <svg viewBox="0 0 12 13" fill="yellow" style="width: 14px; height : 14px">
-												<path d="M2.09627 11.6195L2.82735 8.16864L0.268563 5.80414C0.268563 5.80414 -0.096986 5.48462 0.0248693 5.03728C0.146725 4.58994 0.634105 4.58994 0.634105 4.58994L4.04582 4.27041L5.38614 1.01124C5.38614 1.01124 5.5689 0.5 5.99538 0.5C6.42185 0.5 6.60461 1.01124 6.60461 1.01124L7.94493 4.27041L11.4785 4.58994C11.4785 4.58994 11.844 4.65385 11.9659 5.03728C12.0877 5.42071 11.844 5.67633 11.844 5.67633L9.1634 8.16864L9.89448 11.7473C9.89448 11.7473 10.0163 12.1308 9.71171 12.3864C9.40709 12.642 8.91971 12.3864 8.91971 12.3864L5.99538 10.5331L3.13197 12.3864C3.13197 12.3864 2.70551 12.642 2.33996 12.3864C1.97442 12.1308 2.09627 11.6195 2.09627 11.6195Z" fill="#FF8A00"></path>
-											</svg>
-                                            <a href="#">Xem Đánh giá</a>
-                                        </div>
+                                <div class="product-small-img">
+                                    <span class="detail__slider-btn detail__slider-left-btn">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </span>
+                                    <div class="product__small-image-container">
+                                        {{#each this.images}}
+                                            <img src={{this}} alt="Description image" class="detail__small-image">
+                                        {{/each}}                                                                    
                                     </div>
-                                    <div class="info-bottom">
-                                        <div class="product-price">
-                                            <span class="pro-price">{{this.price}}</span>
+                                    <span class="detail__slider-btn detail__slider-right-btn">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="info-wrapper">
+                                    <div class="info-content">
+                                        <div class="info-top">
+                                            <div class="product-name">
+                                                <h1>{{this.name}}</h1>
+                                            </div>
+        
+                                            <div class="product-rating">
+                                                <span class="number">100</span>
+                                                <svg viewBox="0 0 12 13" fill="yellow" style="width: 14px; height : 14px">
+    												<path d="M2.09627 11.6195L2.82735 8.16864L0.268563 5.80414C0.268563 5.80414 -0.096986 5.48462 0.0248693 5.03728C0.146725 4.58994 0.634105 4.58994 0.634105 4.58994L4.04582 4.27041L5.38614 1.01124C5.38614 1.01124 5.5689 0.5 5.99538 0.5C6.42185 0.5 6.60461 1.01124 6.60461 1.01124L7.94493 4.27041L11.4785 4.58994C11.4785 4.58994 11.844 4.65385 11.9659 5.03728C12.0877 5.42071 11.844 5.67633 11.844 5.67633L9.1634 8.16864L9.89448 11.7473C9.89448 11.7473 10.0163 12.1308 9.71171 12.3864C9.40709 12.642 8.91971 12.3864 8.91971 12.3864L5.99538 10.5331L3.13197 12.3864C3.13197 12.3864 2.70551 12.642 2.33996 12.3864C1.97442 12.1308 2.09627 11.6195 2.09627 11.6195Z" fill="#FF8A00"></path>
+    											</svg>
+                                                <a href="#">Xem Đánh giá</a>
+                                            </div>
                                         </div>
-    
-                                        <div class="product-action">
-                                            <div class="action-buy">
-                                                <button class="btn button btn-buynow" name="buy-now" id="buy-now">
-                                                    <span class="main-text">MUA NGAY</span>
-                                                    <span class="sub-text">Giao hàng tận nơi hoặc nhận tại cửa hàng</span>
-                                                </button>
+                                        <div class="info-bottom">
+                                            <div class="product-price">
+                                                <span class="pro-price">{{this.price}}</span>
                                             </div>
-                                            <div class="product-desc-short">
-                                                <p>
-                                                    <span style="font-size:18px;font-weight:bold ; text-transform:capitalize">✔&nbsp;Hãng: {{this.branch}}</span>
-                                                </p>
-
-                                                <p>
-                                                    <span style="font-size:18px">✔&nbsp;Bảo hành chính hãng 24&nbsp;tháng&nbsp;</span>
-                                                </p>
-    
-                                                <p>
-                                                    <span style="font-size:18px">✔ Hỗ trợ đổi mới trong 7 ngày&nbsp;</span>
-                                                </p>
-                                            </div>
-                                            <div class="product-promo-box" id="discount-promo-box">
-                                                <div class="box-header">
-                                                    <h2>Khuyến mãi</h2>
+        
+                                            <div class="product-action">
+                                                <div class="action-buy">
+                                                    <button class="btn button btn-buynow" name="buy-now" id="buy-now">
+                                                        <span class="main-text">MUA NGAY</span>
+                                                        <span class="sub-text">Giao hàng tận nơi hoặc nhận tại cửa hàng</span>
+                                                    </button>
                                                 </div>
-                                                <div class="box-content" id="discount-promo--product">
-                                                    <div class="discount-promo--content">
-                                                        <div class="discount-promo--list">
-                                                            <ul>
-                                                                {{#each this.promotions}}
-                                                                <li>
-                                                                    <div class="line-discount">
-                                                                        <span>{{this}}</span>
-                                                                    </div>
-                                                                </li>
-                                                                {{/each}}
-                                                            </ul>
+                                                <div class="product-desc-short">
+                                                    <p>
+                                                        <span style="font-size:18px;font-weight:bold ; text-transform:capitalize">✔&nbsp;Hãng: {{this.branch}}</span>
+                                                    </p>
+    
+                                                    <p>
+                                                        <span style="font-size:18px">✔&nbsp;Bảo hành chính hãng 24&nbsp;tháng&nbsp;</span>
+                                                    </p>
+        
+                                                    <p>
+                                                        <span style="font-size:18px">✔ Hỗ trợ đổi mới trong 7 ngày&nbsp;</span>
+                                                    </p>
+                                                </div>
+                                                <div class="product-promo-box" id="discount-promo-box">
+                                                    <div class="box-header">
+                                                        <h2>Khuyến mãi</h2>
+                                                    </div>
+                                                    <div class="box-content" id="discount-promo--product">
+                                                        <div class="discount-promo--content">
+                                                            <div class="discount-promo--list">
+                                                                <ul>
+                                                                    {{#each this.promotions}}
+                                                                    <li>
+                                                                        <div class="line-discount">
+                                                                            <span>{{this}}</span>
+                                                                        </div>
+                                                                    </li>
+                                                                    {{/each}}
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                 </div>
-                </div>
-            </div>
-            <div class="product-inner">
-                <div class="product-block">
-                    <div class="product-heading">
-                        <h2>Mô tả sản phẩm</h2>
+                     </div>
                     </div>
-                    <div class="product-wrap">
-                        <div class="product-desc--content">
-                            <div class="desc-content">
-                                 {{this.des}}
-                            </div> 
+                </div>
+                <div class="product-inner">
+                    <div class="product-block">
+                        <div class="product-heading">
+                            <h2>Mô tả sản phẩm</h2>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-desc--content">
+                                <div class="desc-content">
+                                     {{this.des}}
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+   </div>
 </div>
 {{/with}}
 <script src="/javascripts/product_details.js" type="module"></script>

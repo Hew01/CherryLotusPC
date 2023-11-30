@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const headerOrderOptionLinkElement = $('.header__order-option a')
   const headerCartBadge = $('.header__cart-badge')
   const gotoTopBtnElement = document.querySelector('.go-to-top-btn')
+  const headerSearchInputElement = document.querySelector('.header__search-input')
 
   // function check valid email
   const isValidEmail = (email) => {
@@ -301,4 +302,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // call functions
   checkCurrentUser();
+  headerSearchInputElement.value = ''
 });

@@ -35,6 +35,14 @@
     object-position: center;
 }
 
+.collection__sort-box li a {
+    color: var(--text-color);
+}
+
+.collection__sort-box li.active a{
+    color: var(--primary-color);
+}
+
 /* Product card */
 .collection__product-wrapper {
     overflow: hidden;

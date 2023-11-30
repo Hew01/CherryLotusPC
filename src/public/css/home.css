@@ -74,7 +74,7 @@
   flex: 1;
   outline: none;
   border: none;
-  background-color: transparent;
+  background-color: #fff;
   font-size: 1.6rem;
   padding-right: 6px;
 }
