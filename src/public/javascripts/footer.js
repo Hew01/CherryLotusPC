@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     function checkScreenWidth() {
       var isSmallScreen = window.innerWidth < 760;
-  
       var h4Elements = document.querySelectorAll("#footer h4");
+      const paymentsSection = document.querySelector('.footer__payments')
+
       h4Elements.forEach(function (h4) {
         var ul = h4.nextElementSibling;
         if (isSmallScreen) {
           ul.style.display = "none";
         } else {
           ul.style.display = "block";
+          paymentsSection.style.display = "grid";
         }
       });
 
