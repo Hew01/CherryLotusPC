@@ -110,7 +110,6 @@ section {
     gap: 8px;
     overflow: hidden;
     align-items: flex-end;
-    justify-content: space-between;
 }
 
 .home__banner-slider {
@@ -265,7 +264,7 @@ section {
     display: flex;
     row-gap: 20px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -344,3 +343,38 @@ section {
 }
 
 /* Responsive home page */
+@media (max-width: 574px) {
+    .hide__breakpoint_575px {
+        display: none;
+    }
+
+    .home__categories-item {
+        flex: 1 0 100%;
+    }
+}
+
+@media (max-width: 769px) {
+    .hide__breakpoint_768px {
+        display: none;
+    }
+
+    .home__categories-item {
+        flex: 1 0 50%; 
+    }
+
+    .home__categories-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 991px) {
+    .hide__breakpoint_992px {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hide__breakpoint_1200px {
+        display: none;
+    }
+}
