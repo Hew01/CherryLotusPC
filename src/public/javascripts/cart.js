@@ -126,6 +126,9 @@ const handleBackStepIcon = () => {
   backStepIcon.forEach((step, index) => {
     if (index < backStepIcon.length - 2 && currentStep !== 4) {
       step.onclick = function () {
+        if(currentStep === 4)
+          return
+        
         currentStep = index + 1;
         updateProgress();
         updateProductElement();
