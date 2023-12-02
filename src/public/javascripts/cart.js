@@ -38,6 +38,7 @@ const backStepIcon = document.querySelectorAll(".header-cart__step--icon");
 const orderNow = document.querySelector(".order-now");
 const orderNowFinal = document.querySelector(".order-now-final");
 const productPriceTags = document.querySelectorAll(".product-price");
+const cartViewOrder = document.querySelector('.cart__view-orders')
 
 const updateInfo = document.querySelectorAll(".innerText-box");
 const updateFinalInfo = document.querySelectorAll(".final-info");
@@ -181,6 +182,7 @@ const handleMoveNextStep = () => {
     .then(res => {
         console.log(res)
         headerCartBadge.innerText = 0
+        cartViewOrder.setAttribute("href", `/account/${userId}`)
         updateInfoCustomerPaymentFinal();
     })
     .catch(err => console.log(err))
@@ -336,8 +338,6 @@ fetch(
     console.error("Lỗi khi gọi api", error);
   });
 
-// Select huyện
-
 function fetchDistricts(provincesID) {
   fetch(
     `https://vnprovinces.pythonanywhere.com/api/districts/?province_id=${provincesID}&basic=true&limit=100`
@@ -362,7 +362,7 @@ function fetchDistricts(provincesID) {
       console.error("Lỗi khi gọi api", error);
     });
 }
-//Select xax phuong
+
 function fetchWards(districtsID) {
   fetch(
     `https://vnprovinces.pythonanywhere.com/api/wards/?district_id=${districtsID}&basic=true&limit=100`
@@ -389,7 +389,6 @@ function fetchWards(districtsID) {
 }
 
 function getProvinces() {
-  // Biến kiểm tra
   var event = window.event || event;
   fetchDistricts(event.target.value);
   document.getElementById(
