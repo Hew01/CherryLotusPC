@@ -15,7 +15,8 @@
     "express-handlebars": "^7.1.2",
     "livereload": "^0.9.3",
     "mongoose": "^8.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "xss-shield": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
