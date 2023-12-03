@@ -1,7 +1,6 @@
 const cartModel = require('../models/cart')
 const productModel = require('../models/product')
 const { mongooseToObject, mongooseToObjectAll } = require('../../untils')
-const mongoose  = require('mongoose')
 
 class CartController {
     //[GET] /cart/:id
@@ -9,7 +8,7 @@ class CartController {
         const userId = req.params.id
         const cart = await cartModel.findOne({ userId }).populate('products.productId', 'name price images')
         if(!cart) {
-            return res.status(404).json({"Message": "Không tồn tại giỏ hàng"})
+            return res.render('cart', { products : [] })
         }
         res.render('cart', { products: mongooseToObjectAll(cart.products) })
     }
