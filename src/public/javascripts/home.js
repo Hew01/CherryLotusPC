@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const updateCartNumber = (currentUser) => {
-    fetch(`http://localhost:3000/cart/number-product/${currentUser._id}`)
+    fetch(`https://localhost:3000/cart/number-product/${currentUser._id}`)
       .then(response => response.json())
       .then(data => headerCartBadge.innerText = data.numberOfProduct)
       .catch(err => console.log(err))
@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://localhost:3000/users/login", {
       method: "POST",
       cors: "cors",
       body: JSON.stringify({
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    fetch("http://localhost:3000/users/register", {
+    fetch("https://localhost:3000/users/register", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({

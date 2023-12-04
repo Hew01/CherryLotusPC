@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     productCardElements.forEach(card => {
         card.onclick = function() {
-            window.location.href = `http://localhost:3000/products/details/${this.dataset.id}`
+            window.location.href = `https://localhost:3000/products/details/${this.dataset.id}`
         }
     })
 

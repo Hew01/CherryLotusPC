@@ -473,7 +473,7 @@ deleteProductBtnElements.forEach(btn => {
 
 cartItems.forEach(item => {
   item.onclick = function(event) {
-        window.location.href = `http://localhost:3000/products/details/${this.dataset.id}`
+        window.location.href = `https://localhost:3000/products/details/${this.dataset.id}`
   }
 })
 
