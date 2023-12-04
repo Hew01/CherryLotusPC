@@ -174,7 +174,7 @@ const handleMoveNextStep = () => {
 
   if (currentStep === 3) {
     const userId = JSON.parse(localStorage.getItem('currentUser'))._id
-    fetch('http://localhost:3000/order/place-order', {
+    fetch('https://localhost:3000/order/place-order', {
        method: 'POST',
        body: JSON.stringify({ userId, name : infoCustomer.name, totalPrice, address : `${infoCustomer.home},${infoCustomer.ward},${infoCustomer.district},${infoCustomer.province}`, phoneNumber : infoCustomer.phoneNumber})
     })
@@ -415,7 +415,7 @@ increaseQuantityBtnElements.forEach(btn => {
       
       const userId = JSON.parse(localStorage.getItem('currentUser'))._id
       const productId = event.target.closest('.product-cart-item').dataset.id
-      fetch('http://localhost:3000/cart/increase-quantity', {
+      fetch('https://localhost:3000/cart/increase-quantity', {
         method: "POST",
         body : JSON.stringify({ userId, productId })
       })
@@ -441,7 +441,7 @@ decreaseQuantityBtnElements.forEach(btn => {
     
     const userId = JSON.parse(localStorage.getItem('currentUser'))._id
     const productId = event.target.closest('.product-cart-item').dataset.id
-    fetch('http://localhost:3000/cart/decrease-quantity', {
+    fetch('https://localhost:3000/cart/decrease-quantity', {
       method: "POST",
       body : JSON.stringify({ userId, productId })
     })
@@ -459,7 +459,7 @@ deleteProductBtnElements.forEach(btn => {
     event.stopPropagation()
     const userId = JSON.parse(localStorage.getItem('currentUser'))._id
     const productId = event.target.closest('.product-cart-item').dataset.id
-    fetch('http://localhost:3000/cart/delete-product', {
+    fetch('https://localhost:3000/cart/delete-product', {
         method : "POST",
         body: JSON.stringify({ userId, productId })
     })

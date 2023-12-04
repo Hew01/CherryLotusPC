@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const productId = $('.product_id').innerText
             const userId = currentUser._id
             console.log(productId, userId)
-            fetch('http://localhost:3000/cart/add-product', {
+            fetch('https://localhost:3000/cart/add-product', {
                 method: "POST",
                 body: JSON.stringify({ userId, productId })
             })
