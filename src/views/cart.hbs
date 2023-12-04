@@ -100,7 +100,7 @@
                     </section>
 
                     <section style="width: 100%" class="info-customer">
-                        <form style="width: 100%" action="">
+                        <form style="width: 100%">
                             <div class="title-info-customer">
                                 <h2 class="title-text">Thông tin khách mua hàng</h2>
                             </div>
@@ -127,12 +127,12 @@
                                 <div class="address-shipping">
                                     <div class="select-left select-box">
                                         <div class="select-option select-option1 select-option123 ">
-                                            <select name="" id="provinces" onchange="getProvinces()" class="form-data">
+                                            <select name="provinces" id="provinces" onchange="getProvinces()" class="form-data">
                                                 <option  value="">Chọn Tỉnh, Thành phố</option>
                                             </select>
                                         </div>
                                         <div class="select-option select-option2 select-option123 ">
-                                            <select name="" id="district" onchange="getDistricts()" class="form-data">
+                                            <select name="district" id="district" onchange="getDistricts()" class="form-data">
                                                 <option value="">Chọn Quận, Huyện</option>
                                             </select>
                                         </div>
@@ -140,21 +140,21 @@
 
                                     <div class="select-right select-box">
                                         <div class="select-option select-option3 select-option123 ">
-                                            <select name="" id="wards"  class="form-data">
+                                            <select name="wards" id="wards"  class="form-data">
                                                 <option value="">Chọn Phường, Xã</option>
                                             </select>
                                         </div>
                                         <div class="select-option select-option4 form-data">
-                                            <input id="adress-home" type="text" placeholder class="form-data">
-                                            <label for="" class="label-text-address">Số nhà, tên đường</label>
+                                            <input id="address-home" type="text" placeholder class="form-data">
+                                            <label for="address-home" class="label-text-address">Số nhà, tên đường</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="note-box">
                                     <div class="text-note">
-                                        <input type="text" class="input-text-note" placeholder="">
-                                        <label for="" class="label-text-note">Lưu ý, yêu cầu khác (Không bắt buộc)</label>
+                                        <input id="notes" type="text" class="input-text-note" placeholder="">
+                                        <label for="notes" class="label-text-note">Lưu ý, yêu cầu khác (Không bắt buộc)</label>
                                     </div>
                                 </div>
                             </div>
