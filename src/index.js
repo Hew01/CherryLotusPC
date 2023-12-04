@@ -8,6 +8,7 @@ const handlebars = require('express-handlebars')
 const { connectDatabase } = require('./app/config/database')
 const route = require('./routes')
 const handlebarsHelpers = require('./app/config/helpers')
+const helmet = require('helmet');
 
 const app = express()
 
@@ -26,6 +27,19 @@ app.use(connectLivereload())
 
 // set up morgan to log requests
 app.use(morgan('combined'))
+
+// Use Helmet!
+app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["'self'", "data:", "https://product.hstatic.net"],
+        "script-src": ["'self'", "http://localhost:35729"],
+        "connect-src": ["'self'", "ws://localhost:35729"],
+      },
+    },
+  }));
+  
 
 // set up template engine with handlebars
 app.engine('.hbs', handlebars.engine({ extname : '.hbs', helpers: handlebarsHelpers }))
